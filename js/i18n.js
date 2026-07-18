@@ -576,3 +576,6 @@ const I18n = (() => {
 
   return { init, t, setLanguage, getLang, getSpeechLang, getLanguages, SUPPORTED_LANGUAGES };
 })();
+
+if (typeof module !== 'undefined' && module.exports) module.exports = I18n;
+

@@ -429,3 +429,5 @@ const Utils = (() => {
     trapFocus
   };
 })();
+
+if (typeof module !== 'undefined' && module.exports) module.exports = Utils;

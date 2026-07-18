@@ -28,6 +28,8 @@ const AIEngine = (() => {
     TICKETS:      'tickets',
     FANZONE:      'fanzone',
     PLAYERS:      'players',
+    SUSTAINABILITY: 'sustainability',
+    STAFF:        'staff',
     GREETING:     'greeting',
     THANKS:       'thanks',
     GENERAL:      'general'
@@ -38,8 +40,16 @@ const AIEngine = (() => {
    * ========================================================================= */
   const PATTERNS = [
     {
+      intent: INTENTS.SUSTAINABILITY,
+      patterns: [/sustainab|eco|green|recycle|carbon|offset|emission|environment|climate|footprint/i]
+    },
+    {
+      intent: INTENTS.STAFF,
+      patterns: [/staff ops mode|enable staff mode|operational intelligence|crowd deployment/i]
+    },
+    {
       intent: INTENTS.GREETING,
-      patterns: [/^(hi|hello|hey|hola|bonjour|ciao|hallo|こんにちは|안녕|नमस्ते|مرحبا|oi|olá)[\s!?]*$/i]
+      patterns: [/^(hi|hello|hey|hola|bonjour|ciao|hallo|こんにちは|안녕|नमस्ते|مرحبا|oi|olá)\b/i]
     },
     {
       intent: INTENTS.THANKS,
@@ -158,6 +168,14 @@ const AIEngine = (() => {
    * ========================================================================= */
 
   const RESPONSES = {
+
+    [INTENTS.SUSTAINABILITY]: () => {
+      return `🌱 **SmartStadium Eco-Hub**\n\nDid you know? Taking the Metro today saves approximately **2.4kg of CO2** compared to driving!\n\n**Recycling:**\n• Look for the Green Bins (mixed recycling) and Blue Bins (compost/food waste) every 50 meters.\n• We use 100% biodegradable cups.\n\n**Carbon Offset:**\nIf you flew here, you can offset your flight using the FIFA Green Goal program.\n\nThank you for helping make WC 2026 the greenest World Cup ever! 🌍`;
+    },
+
+    [INTENTS.STAFF]: () => {
+      return `🔐 **STAFF OPS MODE ENABLED**\n\n**Real-time Insights (Zone: North Concourse)**\n🚨 **Alert**: Crowd density approaching 85% at Gate A (Expected delay: 15 mins).\n\n**AI Recommendation:**\n• Redirect incoming fans to Gate B (Currently at 30% capacity).\n• Deploy 2 additional wayfinding volunteers to Section 105 junction.\n• Pre-warn concessions at Section 110 of incoming surge.\n\n*Type "exit staff mode" to return to fan view.*`;
+    },
 
     [INTENTS.GREETING]: () => {
       const greetings = [
@@ -581,3 +599,5 @@ const AIEngine = (() => {
     INTENTS
   };
 })();
+
+if (typeof module !== 'undefined' && module.exports) module.exports = AIEngine;
