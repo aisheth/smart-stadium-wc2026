@@ -1,0 +1,1828 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Code coverage report for i18n.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="prettify.css" />
+    <link rel="stylesheet" href="base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+    
+<body>
+<div class='wrapper'>
+    <div class='pad1'>
+        <h1><a href="index.html">All files</a> i18n.js</h1>
+        <div class='clearfix'>
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">97.61% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>41/42</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">83.33% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>25/30</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>8/8</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>37/37</span>
+            </div>
+        
+            
+        </div>
+        <p class="quiet">
+            Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
+        </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input type="search" id="fileSearch">
+            </div>
+        </template>
+    </div>
+    <div class='status-line high'></div>
+    <pre><table class="coverage">
+<tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
+<a name='L2'></a><a href='#L2'>2</a>
+<a name='L3'></a><a href='#L3'>3</a>
+<a name='L4'></a><a href='#L4'>4</a>
+<a name='L5'></a><a href='#L5'>5</a>
+<a name='L6'></a><a href='#L6'>6</a>
+<a name='L7'></a><a href='#L7'>7</a>
+<a name='L8'></a><a href='#L8'>8</a>
+<a name='L9'></a><a href='#L9'>9</a>
+<a name='L10'></a><a href='#L10'>10</a>
+<a name='L11'></a><a href='#L11'>11</a>
+<a name='L12'></a><a href='#L12'>12</a>
+<a name='L13'></a><a href='#L13'>13</a>
+<a name='L14'></a><a href='#L14'>14</a>
+<a name='L15'></a><a href='#L15'>15</a>
+<a name='L16'></a><a href='#L16'>16</a>
+<a name='L17'></a><a href='#L17'>17</a>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a>
+<a name='L83'></a><a href='#L83'>83</a>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a>
+<a name='L88'></a><a href='#L88'>88</a>
+<a name='L89'></a><a href='#L89'>89</a>
+<a name='L90'></a><a href='#L90'>90</a>
+<a name='L91'></a><a href='#L91'>91</a>
+<a name='L92'></a><a href='#L92'>92</a>
+<a name='L93'></a><a href='#L93'>93</a>
+<a name='L94'></a><a href='#L94'>94</a>
+<a name='L95'></a><a href='#L95'>95</a>
+<a name='L96'></a><a href='#L96'>96</a>
+<a name='L97'></a><a href='#L97'>97</a>
+<a name='L98'></a><a href='#L98'>98</a>
+<a name='L99'></a><a href='#L99'>99</a>
+<a name='L100'></a><a href='#L100'>100</a>
+<a name='L101'></a><a href='#L101'>101</a>
+<a name='L102'></a><a href='#L102'>102</a>
+<a name='L103'></a><a href='#L103'>103</a>
+<a name='L104'></a><a href='#L104'>104</a>
+<a name='L105'></a><a href='#L105'>105</a>
+<a name='L106'></a><a href='#L106'>106</a>
+<a name='L107'></a><a href='#L107'>107</a>
+<a name='L108'></a><a href='#L108'>108</a>
+<a name='L109'></a><a href='#L109'>109</a>
+<a name='L110'></a><a href='#L110'>110</a>
+<a name='L111'></a><a href='#L111'>111</a>
+<a name='L112'></a><a href='#L112'>112</a>
+<a name='L113'></a><a href='#L113'>113</a>
+<a name='L114'></a><a href='#L114'>114</a>
+<a name='L115'></a><a href='#L115'>115</a>
+<a name='L116'></a><a href='#L116'>116</a>
+<a name='L117'></a><a href='#L117'>117</a>
+<a name='L118'></a><a href='#L118'>118</a>
+<a name='L119'></a><a href='#L119'>119</a>
+<a name='L120'></a><a href='#L120'>120</a>
+<a name='L121'></a><a href='#L121'>121</a>
+<a name='L122'></a><a href='#L122'>122</a>
+<a name='L123'></a><a href='#L123'>123</a>
+<a name='L124'></a><a href='#L124'>124</a>
+<a name='L125'></a><a href='#L125'>125</a>
+<a name='L126'></a><a href='#L126'>126</a>
+<a name='L127'></a><a href='#L127'>127</a>
+<a name='L128'></a><a href='#L128'>128</a>
+<a name='L129'></a><a href='#L129'>129</a>
+<a name='L130'></a><a href='#L130'>130</a>
+<a name='L131'></a><a href='#L131'>131</a>
+<a name='L132'></a><a href='#L132'>132</a>
+<a name='L133'></a><a href='#L133'>133</a>
+<a name='L134'></a><a href='#L134'>134</a>
+<a name='L135'></a><a href='#L135'>135</a>
+<a name='L136'></a><a href='#L136'>136</a>
+<a name='L137'></a><a href='#L137'>137</a>
+<a name='L138'></a><a href='#L138'>138</a>
+<a name='L139'></a><a href='#L139'>139</a>
+<a name='L140'></a><a href='#L140'>140</a>
+<a name='L141'></a><a href='#L141'>141</a>
+<a name='L142'></a><a href='#L142'>142</a>
+<a name='L143'></a><a href='#L143'>143</a>
+<a name='L144'></a><a href='#L144'>144</a>
+<a name='L145'></a><a href='#L145'>145</a>
+<a name='L146'></a><a href='#L146'>146</a>
+<a name='L147'></a><a href='#L147'>147</a>
+<a name='L148'></a><a href='#L148'>148</a>
+<a name='L149'></a><a href='#L149'>149</a>
+<a name='L150'></a><a href='#L150'>150</a>
+<a name='L151'></a><a href='#L151'>151</a>
+<a name='L152'></a><a href='#L152'>152</a>
+<a name='L153'></a><a href='#L153'>153</a>
+<a name='L154'></a><a href='#L154'>154</a>
+<a name='L155'></a><a href='#L155'>155</a>
+<a name='L156'></a><a href='#L156'>156</a>
+<a name='L157'></a><a href='#L157'>157</a>
+<a name='L158'></a><a href='#L158'>158</a>
+<a name='L159'></a><a href='#L159'>159</a>
+<a name='L160'></a><a href='#L160'>160</a>
+<a name='L161'></a><a href='#L161'>161</a>
+<a name='L162'></a><a href='#L162'>162</a>
+<a name='L163'></a><a href='#L163'>163</a>
+<a name='L164'></a><a href='#L164'>164</a>
+<a name='L165'></a><a href='#L165'>165</a>
+<a name='L166'></a><a href='#L166'>166</a>
+<a name='L167'></a><a href='#L167'>167</a>
+<a name='L168'></a><a href='#L168'>168</a>
+<a name='L169'></a><a href='#L169'>169</a>
+<a name='L170'></a><a href='#L170'>170</a>
+<a name='L171'></a><a href='#L171'>171</a>
+<a name='L172'></a><a href='#L172'>172</a>
+<a name='L173'></a><a href='#L173'>173</a>
+<a name='L174'></a><a href='#L174'>174</a>
+<a name='L175'></a><a href='#L175'>175</a>
+<a name='L176'></a><a href='#L176'>176</a>
+<a name='L177'></a><a href='#L177'>177</a>
+<a name='L178'></a><a href='#L178'>178</a>
+<a name='L179'></a><a href='#L179'>179</a>
+<a name='L180'></a><a href='#L180'>180</a>
+<a name='L181'></a><a href='#L181'>181</a>
+<a name='L182'></a><a href='#L182'>182</a>
+<a name='L183'></a><a href='#L183'>183</a>
+<a name='L184'></a><a href='#L184'>184</a>
+<a name='L185'></a><a href='#L185'>185</a>
+<a name='L186'></a><a href='#L186'>186</a>
+<a name='L187'></a><a href='#L187'>187</a>
+<a name='L188'></a><a href='#L188'>188</a>
+<a name='L189'></a><a href='#L189'>189</a>
+<a name='L190'></a><a href='#L190'>190</a>
+<a name='L191'></a><a href='#L191'>191</a>
+<a name='L192'></a><a href='#L192'>192</a>
+<a name='L193'></a><a href='#L193'>193</a>
+<a name='L194'></a><a href='#L194'>194</a>
+<a name='L195'></a><a href='#L195'>195</a>
+<a name='L196'></a><a href='#L196'>196</a>
+<a name='L197'></a><a href='#L197'>197</a>
+<a name='L198'></a><a href='#L198'>198</a>
+<a name='L199'></a><a href='#L199'>199</a>
+<a name='L200'></a><a href='#L200'>200</a>
+<a name='L201'></a><a href='#L201'>201</a>
+<a name='L202'></a><a href='#L202'>202</a>
+<a name='L203'></a><a href='#L203'>203</a>
+<a name='L204'></a><a href='#L204'>204</a>
+<a name='L205'></a><a href='#L205'>205</a>
+<a name='L206'></a><a href='#L206'>206</a>
+<a name='L207'></a><a href='#L207'>207</a>
+<a name='L208'></a><a href='#L208'>208</a>
+<a name='L209'></a><a href='#L209'>209</a>
+<a name='L210'></a><a href='#L210'>210</a>
+<a name='L211'></a><a href='#L211'>211</a>
+<a name='L212'></a><a href='#L212'>212</a>
+<a name='L213'></a><a href='#L213'>213</a>
+<a name='L214'></a><a href='#L214'>214</a>
+<a name='L215'></a><a href='#L215'>215</a>
+<a name='L216'></a><a href='#L216'>216</a>
+<a name='L217'></a><a href='#L217'>217</a>
+<a name='L218'></a><a href='#L218'>218</a>
+<a name='L219'></a><a href='#L219'>219</a>
+<a name='L220'></a><a href='#L220'>220</a>
+<a name='L221'></a><a href='#L221'>221</a>
+<a name='L222'></a><a href='#L222'>222</a>
+<a name='L223'></a><a href='#L223'>223</a>
+<a name='L224'></a><a href='#L224'>224</a>
+<a name='L225'></a><a href='#L225'>225</a>
+<a name='L226'></a><a href='#L226'>226</a>
+<a name='L227'></a><a href='#L227'>227</a>
+<a name='L228'></a><a href='#L228'>228</a>
+<a name='L229'></a><a href='#L229'>229</a>
+<a name='L230'></a><a href='#L230'>230</a>
+<a name='L231'></a><a href='#L231'>231</a>
+<a name='L232'></a><a href='#L232'>232</a>
+<a name='L233'></a><a href='#L233'>233</a>
+<a name='L234'></a><a href='#L234'>234</a>
+<a name='L235'></a><a href='#L235'>235</a>
+<a name='L236'></a><a href='#L236'>236</a>
+<a name='L237'></a><a href='#L237'>237</a>
+<a name='L238'></a><a href='#L238'>238</a>
+<a name='L239'></a><a href='#L239'>239</a>
+<a name='L240'></a><a href='#L240'>240</a>
+<a name='L241'></a><a href='#L241'>241</a>
+<a name='L242'></a><a href='#L242'>242</a>
+<a name='L243'></a><a href='#L243'>243</a>
+<a name='L244'></a><a href='#L244'>244</a>
+<a name='L245'></a><a href='#L245'>245</a>
+<a name='L246'></a><a href='#L246'>246</a>
+<a name='L247'></a><a href='#L247'>247</a>
+<a name='L248'></a><a href='#L248'>248</a>
+<a name='L249'></a><a href='#L249'>249</a>
+<a name='L250'></a><a href='#L250'>250</a>
+<a name='L251'></a><a href='#L251'>251</a>
+<a name='L252'></a><a href='#L252'>252</a>
+<a name='L253'></a><a href='#L253'>253</a>
+<a name='L254'></a><a href='#L254'>254</a>
+<a name='L255'></a><a href='#L255'>255</a>
+<a name='L256'></a><a href='#L256'>256</a>
+<a name='L257'></a><a href='#L257'>257</a>
+<a name='L258'></a><a href='#L258'>258</a>
+<a name='L259'></a><a href='#L259'>259</a>
+<a name='L260'></a><a href='#L260'>260</a>
+<a name='L261'></a><a href='#L261'>261</a>
+<a name='L262'></a><a href='#L262'>262</a>
+<a name='L263'></a><a href='#L263'>263</a>
+<a name='L264'></a><a href='#L264'>264</a>
+<a name='L265'></a><a href='#L265'>265</a>
+<a name='L266'></a><a href='#L266'>266</a>
+<a name='L267'></a><a href='#L267'>267</a>
+<a name='L268'></a><a href='#L268'>268</a>
+<a name='L269'></a><a href='#L269'>269</a>
+<a name='L270'></a><a href='#L270'>270</a>
+<a name='L271'></a><a href='#L271'>271</a>
+<a name='L272'></a><a href='#L272'>272</a>
+<a name='L273'></a><a href='#L273'>273</a>
+<a name='L274'></a><a href='#L274'>274</a>
+<a name='L275'></a><a href='#L275'>275</a>
+<a name='L276'></a><a href='#L276'>276</a>
+<a name='L277'></a><a href='#L277'>277</a>
+<a name='L278'></a><a href='#L278'>278</a>
+<a name='L279'></a><a href='#L279'>279</a>
+<a name='L280'></a><a href='#L280'>280</a>
+<a name='L281'></a><a href='#L281'>281</a>
+<a name='L282'></a><a href='#L282'>282</a>
+<a name='L283'></a><a href='#L283'>283</a>
+<a name='L284'></a><a href='#L284'>284</a>
+<a name='L285'></a><a href='#L285'>285</a>
+<a name='L286'></a><a href='#L286'>286</a>
+<a name='L287'></a><a href='#L287'>287</a>
+<a name='L288'></a><a href='#L288'>288</a>
+<a name='L289'></a><a href='#L289'>289</a>
+<a name='L290'></a><a href='#L290'>290</a>
+<a name='L291'></a><a href='#L291'>291</a>
+<a name='L292'></a><a href='#L292'>292</a>
+<a name='L293'></a><a href='#L293'>293</a>
+<a name='L294'></a><a href='#L294'>294</a>
+<a name='L295'></a><a href='#L295'>295</a>
+<a name='L296'></a><a href='#L296'>296</a>
+<a name='L297'></a><a href='#L297'>297</a>
+<a name='L298'></a><a href='#L298'>298</a>
+<a name='L299'></a><a href='#L299'>299</a>
+<a name='L300'></a><a href='#L300'>300</a>
+<a name='L301'></a><a href='#L301'>301</a>
+<a name='L302'></a><a href='#L302'>302</a>
+<a name='L303'></a><a href='#L303'>303</a>
+<a name='L304'></a><a href='#L304'>304</a>
+<a name='L305'></a><a href='#L305'>305</a>
+<a name='L306'></a><a href='#L306'>306</a>
+<a name='L307'></a><a href='#L307'>307</a>
+<a name='L308'></a><a href='#L308'>308</a>
+<a name='L309'></a><a href='#L309'>309</a>
+<a name='L310'></a><a href='#L310'>310</a>
+<a name='L311'></a><a href='#L311'>311</a>
+<a name='L312'></a><a href='#L312'>312</a>
+<a name='L313'></a><a href='#L313'>313</a>
+<a name='L314'></a><a href='#L314'>314</a>
+<a name='L315'></a><a href='#L315'>315</a>
+<a name='L316'></a><a href='#L316'>316</a>
+<a name='L317'></a><a href='#L317'>317</a>
+<a name='L318'></a><a href='#L318'>318</a>
+<a name='L319'></a><a href='#L319'>319</a>
+<a name='L320'></a><a href='#L320'>320</a>
+<a name='L321'></a><a href='#L321'>321</a>
+<a name='L322'></a><a href='#L322'>322</a>
+<a name='L323'></a><a href='#L323'>323</a>
+<a name='L324'></a><a href='#L324'>324</a>
+<a name='L325'></a><a href='#L325'>325</a>
+<a name='L326'></a><a href='#L326'>326</a>
+<a name='L327'></a><a href='#L327'>327</a>
+<a name='L328'></a><a href='#L328'>328</a>
+<a name='L329'></a><a href='#L329'>329</a>
+<a name='L330'></a><a href='#L330'>330</a>
+<a name='L331'></a><a href='#L331'>331</a>
+<a name='L332'></a><a href='#L332'>332</a>
+<a name='L333'></a><a href='#L333'>333</a>
+<a name='L334'></a><a href='#L334'>334</a>
+<a name='L335'></a><a href='#L335'>335</a>
+<a name='L336'></a><a href='#L336'>336</a>
+<a name='L337'></a><a href='#L337'>337</a>
+<a name='L338'></a><a href='#L338'>338</a>
+<a name='L339'></a><a href='#L339'>339</a>
+<a name='L340'></a><a href='#L340'>340</a>
+<a name='L341'></a><a href='#L341'>341</a>
+<a name='L342'></a><a href='#L342'>342</a>
+<a name='L343'></a><a href='#L343'>343</a>
+<a name='L344'></a><a href='#L344'>344</a>
+<a name='L345'></a><a href='#L345'>345</a>
+<a name='L346'></a><a href='#L346'>346</a>
+<a name='L347'></a><a href='#L347'>347</a>
+<a name='L348'></a><a href='#L348'>348</a>
+<a name='L349'></a><a href='#L349'>349</a>
+<a name='L350'></a><a href='#L350'>350</a>
+<a name='L351'></a><a href='#L351'>351</a>
+<a name='L352'></a><a href='#L352'>352</a>
+<a name='L353'></a><a href='#L353'>353</a>
+<a name='L354'></a><a href='#L354'>354</a>
+<a name='L355'></a><a href='#L355'>355</a>
+<a name='L356'></a><a href='#L356'>356</a>
+<a name='L357'></a><a href='#L357'>357</a>
+<a name='L358'></a><a href='#L358'>358</a>
+<a name='L359'></a><a href='#L359'>359</a>
+<a name='L360'></a><a href='#L360'>360</a>
+<a name='L361'></a><a href='#L361'>361</a>
+<a name='L362'></a><a href='#L362'>362</a>
+<a name='L363'></a><a href='#L363'>363</a>
+<a name='L364'></a><a href='#L364'>364</a>
+<a name='L365'></a><a href='#L365'>365</a>
+<a name='L366'></a><a href='#L366'>366</a>
+<a name='L367'></a><a href='#L367'>367</a>
+<a name='L368'></a><a href='#L368'>368</a>
+<a name='L369'></a><a href='#L369'>369</a>
+<a name='L370'></a><a href='#L370'>370</a>
+<a name='L371'></a><a href='#L371'>371</a>
+<a name='L372'></a><a href='#L372'>372</a>
+<a name='L373'></a><a href='#L373'>373</a>
+<a name='L374'></a><a href='#L374'>374</a>
+<a name='L375'></a><a href='#L375'>375</a>
+<a name='L376'></a><a href='#L376'>376</a>
+<a name='L377'></a><a href='#L377'>377</a>
+<a name='L378'></a><a href='#L378'>378</a>
+<a name='L379'></a><a href='#L379'>379</a>
+<a name='L380'></a><a href='#L380'>380</a>
+<a name='L381'></a><a href='#L381'>381</a>
+<a name='L382'></a><a href='#L382'>382</a>
+<a name='L383'></a><a href='#L383'>383</a>
+<a name='L384'></a><a href='#L384'>384</a>
+<a name='L385'></a><a href='#L385'>385</a>
+<a name='L386'></a><a href='#L386'>386</a>
+<a name='L387'></a><a href='#L387'>387</a>
+<a name='L388'></a><a href='#L388'>388</a>
+<a name='L389'></a><a href='#L389'>389</a>
+<a name='L390'></a><a href='#L390'>390</a>
+<a name='L391'></a><a href='#L391'>391</a>
+<a name='L392'></a><a href='#L392'>392</a>
+<a name='L393'></a><a href='#L393'>393</a>
+<a name='L394'></a><a href='#L394'>394</a>
+<a name='L395'></a><a href='#L395'>395</a>
+<a name='L396'></a><a href='#L396'>396</a>
+<a name='L397'></a><a href='#L397'>397</a>
+<a name='L398'></a><a href='#L398'>398</a>
+<a name='L399'></a><a href='#L399'>399</a>
+<a name='L400'></a><a href='#L400'>400</a>
+<a name='L401'></a><a href='#L401'>401</a>
+<a name='L402'></a><a href='#L402'>402</a>
+<a name='L403'></a><a href='#L403'>403</a>
+<a name='L404'></a><a href='#L404'>404</a>
+<a name='L405'></a><a href='#L405'>405</a>
+<a name='L406'></a><a href='#L406'>406</a>
+<a name='L407'></a><a href='#L407'>407</a>
+<a name='L408'></a><a href='#L408'>408</a>
+<a name='L409'></a><a href='#L409'>409</a>
+<a name='L410'></a><a href='#L410'>410</a>
+<a name='L411'></a><a href='#L411'>411</a>
+<a name='L412'></a><a href='#L412'>412</a>
+<a name='L413'></a><a href='#L413'>413</a>
+<a name='L414'></a><a href='#L414'>414</a>
+<a name='L415'></a><a href='#L415'>415</a>
+<a name='L416'></a><a href='#L416'>416</a>
+<a name='L417'></a><a href='#L417'>417</a>
+<a name='L418'></a><a href='#L418'>418</a>
+<a name='L419'></a><a href='#L419'>419</a>
+<a name='L420'></a><a href='#L420'>420</a>
+<a name='L421'></a><a href='#L421'>421</a>
+<a name='L422'></a><a href='#L422'>422</a>
+<a name='L423'></a><a href='#L423'>423</a>
+<a name='L424'></a><a href='#L424'>424</a>
+<a name='L425'></a><a href='#L425'>425</a>
+<a name='L426'></a><a href='#L426'>426</a>
+<a name='L427'></a><a href='#L427'>427</a>
+<a name='L428'></a><a href='#L428'>428</a>
+<a name='L429'></a><a href='#L429'>429</a>
+<a name='L430'></a><a href='#L430'>430</a>
+<a name='L431'></a><a href='#L431'>431</a>
+<a name='L432'></a><a href='#L432'>432</a>
+<a name='L433'></a><a href='#L433'>433</a>
+<a name='L434'></a><a href='#L434'>434</a>
+<a name='L435'></a><a href='#L435'>435</a>
+<a name='L436'></a><a href='#L436'>436</a>
+<a name='L437'></a><a href='#L437'>437</a>
+<a name='L438'></a><a href='#L438'>438</a>
+<a name='L439'></a><a href='#L439'>439</a>
+<a name='L440'></a><a href='#L440'>440</a>
+<a name='L441'></a><a href='#L441'>441</a>
+<a name='L442'></a><a href='#L442'>442</a>
+<a name='L443'></a><a href='#L443'>443</a>
+<a name='L444'></a><a href='#L444'>444</a>
+<a name='L445'></a><a href='#L445'>445</a>
+<a name='L446'></a><a href='#L446'>446</a>
+<a name='L447'></a><a href='#L447'>447</a>
+<a name='L448'></a><a href='#L448'>448</a>
+<a name='L449'></a><a href='#L449'>449</a>
+<a name='L450'></a><a href='#L450'>450</a>
+<a name='L451'></a><a href='#L451'>451</a>
+<a name='L452'></a><a href='#L452'>452</a>
+<a name='L453'></a><a href='#L453'>453</a>
+<a name='L454'></a><a href='#L454'>454</a>
+<a name='L455'></a><a href='#L455'>455</a>
+<a name='L456'></a><a href='#L456'>456</a>
+<a name='L457'></a><a href='#L457'>457</a>
+<a name='L458'></a><a href='#L458'>458</a>
+<a name='L459'></a><a href='#L459'>459</a>
+<a name='L460'></a><a href='#L460'>460</a>
+<a name='L461'></a><a href='#L461'>461</a>
+<a name='L462'></a><a href='#L462'>462</a>
+<a name='L463'></a><a href='#L463'>463</a>
+<a name='L464'></a><a href='#L464'>464</a>
+<a name='L465'></a><a href='#L465'>465</a>
+<a name='L466'></a><a href='#L466'>466</a>
+<a name='L467'></a><a href='#L467'>467</a>
+<a name='L468'></a><a href='#L468'>468</a>
+<a name='L469'></a><a href='#L469'>469</a>
+<a name='L470'></a><a href='#L470'>470</a>
+<a name='L471'></a><a href='#L471'>471</a>
+<a name='L472'></a><a href='#L472'>472</a>
+<a name='L473'></a><a href='#L473'>473</a>
+<a name='L474'></a><a href='#L474'>474</a>
+<a name='L475'></a><a href='#L475'>475</a>
+<a name='L476'></a><a href='#L476'>476</a>
+<a name='L477'></a><a href='#L477'>477</a>
+<a name='L478'></a><a href='#L478'>478</a>
+<a name='L479'></a><a href='#L479'>479</a>
+<a name='L480'></a><a href='#L480'>480</a>
+<a name='L481'></a><a href='#L481'>481</a>
+<a name='L482'></a><a href='#L482'>482</a>
+<a name='L483'></a><a href='#L483'>483</a>
+<a name='L484'></a><a href='#L484'>484</a>
+<a name='L485'></a><a href='#L485'>485</a>
+<a name='L486'></a><a href='#L486'>486</a>
+<a name='L487'></a><a href='#L487'>487</a>
+<a name='L488'></a><a href='#L488'>488</a>
+<a name='L489'></a><a href='#L489'>489</a>
+<a name='L490'></a><a href='#L490'>490</a>
+<a name='L491'></a><a href='#L491'>491</a>
+<a name='L492'></a><a href='#L492'>492</a>
+<a name='L493'></a><a href='#L493'>493</a>
+<a name='L494'></a><a href='#L494'>494</a>
+<a name='L495'></a><a href='#L495'>495</a>
+<a name='L496'></a><a href='#L496'>496</a>
+<a name='L497'></a><a href='#L497'>497</a>
+<a name='L498'></a><a href='#L498'>498</a>
+<a name='L499'></a><a href='#L499'>499</a>
+<a name='L500'></a><a href='#L500'>500</a>
+<a name='L501'></a><a href='#L501'>501</a>
+<a name='L502'></a><a href='#L502'>502</a>
+<a name='L503'></a><a href='#L503'>503</a>
+<a name='L504'></a><a href='#L504'>504</a>
+<a name='L505'></a><a href='#L505'>505</a>
+<a name='L506'></a><a href='#L506'>506</a>
+<a name='L507'></a><a href='#L507'>507</a>
+<a name='L508'></a><a href='#L508'>508</a>
+<a name='L509'></a><a href='#L509'>509</a>
+<a name='L510'></a><a href='#L510'>510</a>
+<a name='L511'></a><a href='#L511'>511</a>
+<a name='L512'></a><a href='#L512'>512</a>
+<a name='L513'></a><a href='#L513'>513</a>
+<a name='L514'></a><a href='#L514'>514</a>
+<a name='L515'></a><a href='#L515'>515</a>
+<a name='L516'></a><a href='#L516'>516</a>
+<a name='L517'></a><a href='#L517'>517</a>
+<a name='L518'></a><a href='#L518'>518</a>
+<a name='L519'></a><a href='#L519'>519</a>
+<a name='L520'></a><a href='#L520'>520</a>
+<a name='L521'></a><a href='#L521'>521</a>
+<a name='L522'></a><a href='#L522'>522</a>
+<a name='L523'></a><a href='#L523'>523</a>
+<a name='L524'></a><a href='#L524'>524</a>
+<a name='L525'></a><a href='#L525'>525</a>
+<a name='L526'></a><a href='#L526'>526</a>
+<a name='L527'></a><a href='#L527'>527</a>
+<a name='L528'></a><a href='#L528'>528</a>
+<a name='L529'></a><a href='#L529'>529</a>
+<a name='L530'></a><a href='#L530'>530</a>
+<a name='L531'></a><a href='#L531'>531</a>
+<a name='L532'></a><a href='#L532'>532</a>
+<a name='L533'></a><a href='#L533'>533</a>
+<a name='L534'></a><a href='#L534'>534</a>
+<a name='L535'></a><a href='#L535'>535</a>
+<a name='L536'></a><a href='#L536'>536</a>
+<a name='L537'></a><a href='#L537'>537</a>
+<a name='L538'></a><a href='#L538'>538</a>
+<a name='L539'></a><a href='#L539'>539</a>
+<a name='L540'></a><a href='#L540'>540</a>
+<a name='L541'></a><a href='#L541'>541</a>
+<a name='L542'></a><a href='#L542'>542</a>
+<a name='L543'></a><a href='#L543'>543</a>
+<a name='L544'></a><a href='#L544'>544</a>
+<a name='L545'></a><a href='#L545'>545</a>
+<a name='L546'></a><a href='#L546'>546</a>
+<a name='L547'></a><a href='#L547'>547</a>
+<a name='L548'></a><a href='#L548'>548</a>
+<a name='L549'></a><a href='#L549'>549</a>
+<a name='L550'></a><a href='#L550'>550</a>
+<a name='L551'></a><a href='#L551'>551</a>
+<a name='L552'></a><a href='#L552'>552</a>
+<a name='L553'></a><a href='#L553'>553</a>
+<a name='L554'></a><a href='#L554'>554</a>
+<a name='L555'></a><a href='#L555'>555</a>
+<a name='L556'></a><a href='#L556'>556</a>
+<a name='L557'></a><a href='#L557'>557</a>
+<a name='L558'></a><a href='#L558'>558</a>
+<a name='L559'></a><a href='#L559'>559</a>
+<a name='L560'></a><a href='#L560'>560</a>
+<a name='L561'></a><a href='#L561'>561</a>
+<a name='L562'></a><a href='#L562'>562</a>
+<a name='L563'></a><a href='#L563'>563</a>
+<a name='L564'></a><a href='#L564'>564</a>
+<a name='L565'></a><a href='#L565'>565</a>
+<a name='L566'></a><a href='#L566'>566</a>
+<a name='L567'></a><a href='#L567'>567</a>
+<a name='L568'></a><a href='#L568'>568</a>
+<a name='L569'></a><a href='#L569'>569</a>
+<a name='L570'></a><a href='#L570'>570</a>
+<a name='L571'></a><a href='#L571'>571</a>
+<a name='L572'></a><a href='#L572'>572</a>
+<a name='L573'></a><a href='#L573'>573</a>
+<a name='L574'></a><a href='#L574'>574</a>
+<a name='L575'></a><a href='#L575'>575</a>
+<a name='L576'></a><a href='#L576'>576</a>
+<a name='L577'></a><a href='#L577'>577</a>
+<a name='L578'></a><a href='#L578'>578</a>
+<a name='L579'></a><a href='#L579'>579</a>
+<a name='L580'></a><a href='#L580'>580</a>
+<a name='L581'></a><a href='#L581'>581</a>
+<a name='L582'></a><a href='#L582'>582</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">26x</span>
+<span class="cline-any cline-yes">26x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25x</span>
+<span class="cline-any cline-yes">25x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">26x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">41x</span>
+<span class="cline-any cline-yes">41x</span>
+<span class="cline-any cline-yes">41x</span>
+<span class="cline-any cline-yes">41x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
+ * @fileoverview Internationalization (i18n) module
+ * Supports 10 languages with full UI string translations
+ * Language detection from browser, persisted in localStorage
+ */
+&nbsp;
+'use strict';
+&nbsp;
+const I18n = (() =&gt; {
+&nbsp;
+  const SUPPORTED_LANGUAGES = {
+    'en': { name: 'English',    nativeName: 'English',    flag: '🇬🇧', dir: 'ltr', speechLang: 'en-US', voiceName: 'en' },
+    'es': { name: 'Spanish',    nativeName: 'Español',    flag: '🇪🇸', dir: 'ltr', speechLang: 'es-ES', voiceName: 'es' },
+    'fr': { name: 'French',     nativeName: 'Français',   flag: '🇫🇷', dir: 'ltr', speechLang: 'fr-FR', voiceName: 'fr' },
+    'ar': { name: 'Arabic',     nativeName: 'العربية',    flag: '🇸🇦', dir: 'rtl', speechLang: 'ar-SA', voiceName: 'ar' },
+    'pt': { name: 'Portuguese', nativeName: 'Português',  flag: '🇧🇷', dir: 'ltr', speechLang: 'pt-BR', voiceName: 'pt' },
+    'de': { name: 'German',     nativeName: 'Deutsch',    flag: '🇩🇪', dir: 'ltr', speechLang: 'de-DE', voiceName: 'de' },
+    'ja': { name: 'Japanese',   nativeName: '日本語',     flag: '🇯🇵', dir: 'ltr', speechLang: 'ja-JP', voiceName: 'ja' },
+    'ko': { name: 'Korean',     nativeName: '한국어',     flag: '🇰🇷', dir: 'ltr', speechLang: 'ko-KR', voiceName: 'ko' },
+    'hi': { name: 'Hindi',      nativeName: 'हिन्दी',    flag: '🇮🇳', dir: 'ltr', speechLang: 'hi-IN', voiceName: 'hi' },
+    'it': { name: 'Italian',    nativeName: 'Italiano',   flag: '🇮🇹', dir: 'ltr', speechLang: 'it-IT', voiceName: 'it' }
+  };
+&nbsp;
+  // Translation strings
+  const TRANSLATIONS = {
+    en: {
+      appTitle: 'SmartStadium 2026',
+      appSubtitle: 'FIFA World Cup 2026',
+      nav: {
+        home: 'Home', assistant: 'AI Assistant', navigate: 'Navigate',
+        crowd: 'Crowd', tickets: 'Tickets', emergency: 'Emergency'
+      },
+      home: {
+        heroTitle: 'Welcome to the',
+        heroHighlight: 'FIFA World Cup 2026',
+        heroSubtitle: 'Your AI-powered companion for the greatest show on Earth',
+        nextMatch: 'Next Match',
+        liveNow: 'Live Now',
+        matchDay: 'Match Day',
+        crowdStatus: 'Crowd Status',
+        todayVenue: "Today's Venue",
+        findMySeat: 'Find My Seat',
+        interactiveMap: 'Interactive stadium map',
+        myTickets: 'My Tickets',
+        digitalWalletText: 'Digital wallet &amp; entry',
+        weather: 'Weather',
+        gatesOpen: 'Gates Open',
+        openNow: 'OPEN NOW'
+      },
+      chat: {
+        title: 'AI Stadium Assistant',
+        subtitle: 'Online · Powered by SmartAI',
+        placeholder: 'Ask me anything about the stadium...',
+        send: 'Send',
+        voice: 'Voice Input',
+        greeting: "Hello! I'm your FIFA World Cup 2026 Stadium Assistant 🏆 I can help with directions, food, match info, rules, safety, and more. What would you like to know?",
+        quickReplies: ['📍 My Seat', '🚻 Restroom', '🍔 Food Options', '📋 Match Rules', '🏥 First Aid', '🚪 Exit Routes', '🚌 Transport', '♿ Accessibility']
+      },
+      navigate: {
+        title: 'Smart Navigation',
+        subtitle: 'AI-powered wayfinding across the stadium',
+        searchPlaceholder: 'Where do you want to go?',
+        findRoute: 'Find Route',
+        clearRoute: 'Clear',
+        myLocation: 'My Location',
+        stepByStep: 'Turn-by-Turn Directions',
+        estimated: 'Est. walk time',
+        minutes: 'min'
+      },
+      crowd: {
+        title: 'Crowd Management',
+        subtitle: 'Live density monitoring and AI congestion predictions',
+        live: 'LIVE',
+        low: 'Clear', medium: 'Moderate', high: 'Congested',
+        prediction: 'AI Prediction',
+        altRoute: 'Alternate Route',
+        emergencyAlert: 'Emergency Alert',
+        predictionsTitle: 'AI Congestion Predictions'
+      },
+      tickets: {
+        title: 'My Tickets &amp; Fan Zone',
+        digitalWallet: 'Digital Wallet',
+        myTicket: 'My Ticket',
+        fanZone: 'Fan Zone',
+        schedule: 'Schedule',
+        standingsTab: 'Standings',
+        scanTicket: 'Tap to Scan Entry',
+        walletTab: 'Wallet',
+        scheduleTab: 'Schedule',
+        fanZoneTab: 'Fan Zone'
+      },
+      emergency: {
+        title: 'Emergency &amp; Safety',
+        subtitle: 'Your safety is our highest priority',
+        sos: 'SOS', sosLabel: 'TAP FOR EMERGENCY',
+        contacts: 'Emergency Contacts',
+        lostFound: 'Lost &amp; Found',
+        lostChild: 'Report Missing Child',
+        safetyAlerts: 'Safety Alerts',
+        reportItem: 'Report Lost Item',
+        describeItem: 'Describe your lost item...',
+        submit: 'Submit Report',
+        selectIssue: 'Select issue type...',
+        reportFoundItem: 'Report Found Item',
+        alertTitle: 'ALERT',
+        alertMessage: 'Follow staff instructions immediately.'
+      },
+      settings: {
+        title: 'Settings',
+        language: 'Language',
+        highContrast: 'High Contrast',
+        fontSize: 'Font Size',
+        reduceMotion: 'Reduce Motion',
+        notifications: 'Push Notifications',
+        offline: 'Offline Mode',
+        devMode: 'Developer Mode',
+        apiPrompt: 'To enable real Gemini AI, enter your API key (stored locally only).'
+      },
+      common: {
+        loading: 'Loading...', error: 'Something went wrong',
+        retry: 'Retry', close: 'Close', confirm: 'Confirm',
+        cancel: 'Cancel', save: 'Save', search: 'Search',
+        more: 'Learn More', back: 'Back', next: 'Next',
+        live: 'LIVE', new: 'NEW', free: 'Free', acknowledge: 'Acknowledge'
+      }
+    },
+&nbsp;
+    es: {
+      appTitle: 'SmartStadium 2026',
+      appSubtitle: 'Copa Mundial FIFA 2026',
+      nav: {
+        home: 'Inicio', assistant: 'Asistente IA', navigate: 'Navegar',
+        crowd: 'Multitud', tickets: 'Entradas', emergency: 'Emergencia'
+      },
+      home: {
+        heroTitle: 'Bienvenido a la',
+        heroHighlight: 'Copa Mundial FIFA 2026',
+        heroSubtitle: 'Tu compañero impulsado por IA para el mayor espectáculo del mundo',
+        nextMatch: 'Próximo Partido',
+        liveNow: 'En Vivo',
+        matchDay: 'Día del Partido',
+        crowdStatus: 'Estado de Multitud',
+        todayVenue: 'Estadio Hoy'
+      },
+      chat: {
+        title: 'Asistente IA del Estadio',
+        subtitle: 'En línea · Impulsado por SmartAI',
+        placeholder: 'Pregúntame cualquier cosa sobre el estadio...',
+        send: 'Enviar', voice: 'Entrada de voz',
+        greeting: '¡Hola! Soy tu Asistente del Estadio de la Copa Mundial FIFA 2026 🏆 Puedo ayudarte con direcciones, comida, información del partido, reglas, seguridad y más. ¿Qué te gustaría saber?',
+        quickReplies: ['📍 Mi Asiento', '🚻 Baño', '🍔 Comida', '📋 Reglas', '🏥 Primeros Auxilios', '🚪 Salidas', '🚌 Transporte', '♿ Accesibilidad']
+      },
+      navigate: {
+        title: 'Navegación Inteligente',
+        subtitle: 'Orientación por IA en todo el estadio',
+        searchPlaceholder: '¿A dónde quieres ir?',
+        findRoute: 'Buscar Ruta',
+        clearRoute: 'Limpiar',
+        myLocation: 'Mi Ubicación',
+        stepByStep: 'Instrucciones Paso a Paso',
+        estimated: 'Tiempo estimado',
+        minutes: 'min'
+      },
+      crowd: {
+        title: 'Gestión de Multitudes',
+        subtitle: 'Monitoreo en vivo y predicciones de congestión con IA',
+        live: 'EN VIVO', low: 'Despejado', medium: 'Moderado', high: 'Congestionado',
+        prediction: 'Predicción IA', altRoute: 'Ruta Alternativa', emergencyAlert: 'Alerta de Emergencia'
+      },
+      tickets: {
+        title: 'Mis Entradas y Zona Fan',
+        digitalWallet: 'Billetera Digital', myTicket: 'Mi Entrada',
+        fanZone: 'Zona Fan', schedule: 'Calendario', standingsTab: 'Clasificación', scanTicket: 'Toca para Escanear'
+      },
+      emergency: {
+        title: 'Emergencia y Seguridad',
+        subtitle: 'Tu seguridad es nuestra máxima prioridad',
+        sos: 'SOS', sosLabel: 'TOCA EN EMERGENCIA',
+        contacts: 'Contactos de Emergencia', lostFound: 'Objetos Perdidos',
+        lostChild: 'Reportar Niño Perdido', safetyAlerts: 'Alertas de Seguridad',
+        reportItem: 'Reportar Objeto Perdido', describeItem: 'Describe tu objeto perdido...',
+        submit: 'Enviar Reporte'
+      },
+      settings: {
+        title: 'Configuración', language: 'Idioma', highContrast: 'Alto Contraste',
+        fontSize: 'Tamaño de Fuente', reduceMotion: 'Reducir Movimiento',
+        notifications: 'Notificaciones Push', offline: 'Modo Sin Conexión'
+      },
+      common: {
+        loading: 'Cargando...', error: 'Algo salió mal', retry: 'Reintentar',
+        close: 'Cerrar', confirm: 'Confirmar', cancel: 'Cancelar',
+        save: 'Guardar', search: 'Buscar', more: 'Más información',
+        back: 'Atrás', next: 'Siguiente', live: 'EN VIVO', new: 'NUEVO', free: 'Gratis'
+      }
+    },
+&nbsp;
+    fr: {
+      appTitle: 'SmartStadium 2026',
+      appSubtitle: 'Coupe du Monde FIFA 2026',
+      nav: {
+        home: 'Accueil', assistant: 'Assistant IA', navigate: 'Naviguer',
+        crowd: 'Foule', tickets: 'Billets', emergency: 'Urgence'
+      },
+      home: {
+        heroTitle: 'Bienvenue à la',
+        heroHighlight: 'Coupe du Monde FIFA 2026',
+        heroSubtitle: 'Votre compagnon IA pour le plus grand spectacle du monde',
+        nextMatch: 'Prochain Match', liveNow: 'En Direct',
+        matchDay: 'Jour de Match', crowdStatus: 'Statut de la Foule', todayVenue: "Stade d'Aujourd'hui"
+      },
+      chat: {
+        title: "Assistant IA du Stade",
+        subtitle: 'En ligne · Alimenté par SmartAI',
+        placeholder: 'Posez-moi une question sur le stade...',
+        send: 'Envoyer', voice: 'Entrée vocale',
+        greeting: "Bonjour ! Je suis votre Assistant de Stade de la Coupe du Monde FIFA 2026 🏆 Je peux vous aider avec les directions, la nourriture, les infos du match, les règles, la sécurité et plus encore. Que souhaitez-vous savoir ?",
+        quickReplies: ['📍 Mon Siège', '🚻 Toilettes', '🍔 Nourriture', '📋 Règles', '🏥 Premiers Secours', '🚪 Sorties', '🚌 Transport', '♿ Accessibilité']
+      },
+      navigate: { title: 'Navigation Intelligente', subtitle: 'Orientation IA dans le stade',
+        searchPlaceholder: 'Où voulez-vous aller ?', findRoute: 'Trouver un Itinéraire', clearRoute: 'Effacer',
+        myLocation: 'Ma Position', stepByStep: 'Instructions Pas à Pas', estimated: 'Temps de marche estimé', minutes: 'min'
+      },
+      crowd: { title: 'Gestion des Foules', subtitle: 'Surveillance en direct et prédictions IA',
+        live: 'EN DIRECT', low: 'Fluide', medium: 'Modéré', high: 'Congestionné',
+        prediction: 'Prédiction IA', altRoute: 'Itinéraire Alternatif', emergencyAlert: "Alerte d'Urgence"
+      },
+      tickets: { title: 'Mes Billets et Zone Fan', digitalWallet: 'Portefeuille Numérique',
+        myTicket: 'Mon Billet', fanZone: 'Zone Fan', schedule: 'Calendrier', standingsTab: 'Classement', scanTicket: 'Appuyer pour Scanner'
+      },
+      emergency: { title: 'Urgence et Sécurité', subtitle: 'Votre sécurité est notre priorité absolue',
+        sos: 'SOS', sosLabel: "APPUYER EN CAS D'URGENCE",
+        contacts: "Contacts d'Urgence", lostFound: 'Objets Perdus', lostChild: 'Signaler un Enfant Perdu',
+        safetyAlerts: 'Alertes de Sécurité', reportItem: 'Signaler un Objet Perdu',
+        describeItem: 'Décrivez votre objet perdu...', submit: 'Soumettre le Rapport'
+      },
+      settings: { title: 'Paramètres', language: 'Langue', highContrast: 'Contraste Élevé',
+        fontSize: 'Taille de Police', reduceMotion: 'Réduire les Animations',
+        notifications: 'Notifications Push', offline: 'Mode Hors Ligne'
+      },
+      common: { loading: 'Chargement...', error: 'Quelque chose a mal tourné', retry: 'Réessayer',
+        close: 'Fermer', confirm: 'Confirmer', cancel: 'Annuler', save: 'Enregistrer',
+        search: 'Rechercher', more: 'En savoir plus', back: 'Retour', next: 'Suivant',
+        live: 'EN DIRECT', new: 'NOUVEAU', free: 'Gratuit'
+      }
+    },
+&nbsp;
+    ar: {
+      appTitle: 'SmartStadium 2026',
+      appSubtitle: 'كأس العالم FIFA 2026',
+      nav: { home: 'الرئيسية', assistant: 'المساعد الذكي', navigate: 'التنقل', crowd: 'الحشود', tickets: 'التذاكر', emergency: 'الطوارئ' },
+      home: { heroTitle: 'مرحباً بك في', heroHighlight: 'كأس العالم FIFA 2026', heroSubtitle: 'رفيقك الذكي في أعظم عرض على وجه الأرض',
+        nextMatch: 'المباراة القادمة', liveNow: 'مباشر الآن', matchDay: 'يوم المباراة', crowdStatus: 'حالة الحشود', todayVenue: 'ملعب اليوم'
+      },
+      chat: { title: 'مساعد الملعب الذكي', subtitle: 'متصل · مدعوم بالذكاء الاصطناعي',
+        placeholder: 'اسألني أي شيء عن الملعب...', send: 'إرسال', voice: 'إدخال صوتي',
+        greeting: 'مرحباً! أنا مساعد ملعب كأس العالم FIFA 2026 🏆 يمكنني مساعدتك في الاتجاهات والطعام ومعلومات المباراة والقواعد والسلامة والمزيد. ماذا تريد أن تعرف؟',
+        quickReplies: ['📍 مقعدي', '🚻 دورة المياه', '🍔 الطعام', '📋 القواعد', '🏥 الإسعاف', '🚪 المخارج', '🚌 المواصلات', '♿ إمكانية الوصول']
+      },
+      navigate: { title: 'التنقل الذكي', subtitle: 'توجيه بالذكاء الاصطناعي عبر الملعب',
+        searchPlaceholder: 'إلى أين تريد الذهاب؟', findRoute: 'ابحث عن المسار', clearRoute: 'مسح',
+        myLocation: 'موقعي', stepByStep: 'تعليمات خطوة بخطوة', estimated: 'وقت السير المقدر', minutes: 'دقيقة'
+      },
+      crowd: { title: 'إدارة الحشود', subtitle: 'مراقبة مباشرة وتنبؤات الذكاء الاصطناعي',
+        live: 'مباشر', low: 'واضح', medium: 'متوسط', high: 'مزدحم',
+        prediction: 'تنبؤ الذكاء الاصطناعي', altRoute: 'مسار بديل', emergencyAlert: 'تنبيه طارئ'
+      },
+      tickets: { title: 'تذاكري ومنطقة المشجعين', digitalWallet: 'المحفظة الرقمية', myTicket: 'تذكرتي',
+        fanZone: 'منطقة المشجعين', schedule: 'الجدول', standingsTab: 'الترتيب', scanTicket: 'اضغط للمسح'
+      },
+      emergency: { title: 'الطوارئ والسلامة', subtitle: 'سلامتك هي أولويتنا القصوى',
+        sos: 'SOS', sosLabel: 'اضغط في حالة الطوارئ',
+        contacts: 'جهات الاتصال الطارئة', lostFound: 'المفقودات والموجودات',
+        lostChild: 'الإبلاغ عن طفل مفقود', safetyAlerts: 'تنبيهات الأمان',
+        reportItem: 'الإبلاغ عن غرض مفقود', describeItem: 'صف غرضك المفقود...', submit: 'إرسال التقرير'
+      },
+      settings: { title: 'الإعدادات', language: 'اللغة', highContrast: 'تباين عالٍ',
+        fontSize: 'حجم الخط', reduceMotion: 'تقليل الحركة', notifications: 'الإشعارات', offline: 'وضع عدم الاتصال'
+      },
+      common: { loading: 'جارٍ التحميل...', error: 'حدث خطأ ما', retry: 'إعادة المحاولة',
+        close: 'إغلاق', confirm: 'تأكيد', cancel: 'إلغاء', save: 'حفظ', search: 'بحث',
+        more: 'اعرف المزيد', back: 'رجوع', next: 'التالي', live: 'مباشر', new: 'جديد', free: 'مجاني'
+      }
+    },
+&nbsp;
+    pt: {
+      appTitle: 'SmartStadium 2026',
+      appSubtitle: 'Copa do Mundo FIFA 2026',
+      nav: { home: 'Início', assistant: 'Assistente IA', navigate: 'Navegar', crowd: 'Multidão', tickets: 'Ingressos', emergency: 'Emergência' },
+      chat: { title: 'Assistente IA do Estádio', subtitle: 'Online · Powered by SmartAI', placeholder: 'Pergunte qualquer coisa sobre o estádio...',
+        send: 'Enviar', voice: 'Entrada de voz',
+        greeting: 'Olá! Sou seu Assistente do Estádio da Copa do Mundo FIFA 2026 🏆 Posso ajudá-lo com direções, comida, informações da partida, regras, segurança e muito mais. O que gostaria de saber?',
+        quickReplies: ['📍 Meu Assento', '🚻 Banheiro', '🍔 Comida', '📋 Regras', '🏥 Primeiros Socorros', '🚪 Saídas', '🚌 Transporte', '♿ Acessibilidade']
+      },
+      navigate: { title: 'Navegação Inteligente', subtitle: 'Orientação por IA no estádio',
+        searchPlaceholder: 'Para onde você quer ir?', findRoute: 'Encontrar Rota', clearRoute: 'Limpar',
+        myLocation: 'Minha Localização', stepByStep: 'Instruções Passo a Passo', estimated: 'Tempo de caminhada', minutes: 'min'
+      },
+      crowd: { title: 'Gerenciamento de Multidões', subtitle: 'Monitoramento ao vivo e previsões de IA',
+        live: 'AO VIVO', low: 'Livre', medium: 'Moderado', high: 'Congestionado',
+        prediction: 'Previsão IA', altRoute: 'Rota Alternativa', emergencyAlert: 'Alerta de Emergência'
+      },
+      tickets: { title: 'Meus Ingressos e Zona Fan', digitalWallet: 'Carteira Digital', myTicket: 'Meu Ingresso',
+        fanZone: 'Zona Fan', schedule: 'Calendário', standingsTab: 'Classificação', scanTicket: 'Toque para Escanear'
+      },
+      emergency: { title: 'Emergência e Segurança', subtitle: 'Sua segurança é nossa prioridade máxima',
+        sos: 'SOS', sosLabel: 'TOQUE EM EMERGÊNCIA', contacts: 'Contatos de Emergência',
+        lostFound: 'Achados e Perdidos', lostChild: 'Reportar Criança Perdida', safetyAlerts: 'Alertas de Segurança',
+        reportItem: 'Reportar Item Perdido', describeItem: 'Descreva seu item perdido...', submit: 'Enviar Relatório'
+      },
+      settings: { title: 'Configurações', language: 'Idioma', highContrast: 'Alto Contraste',
+        fontSize: 'Tamanho da Fonte', reduceMotion: 'Reduzir Animações', notifications: 'Notificações Push', offline: 'Modo Offline'
+      },
+      common: { loading: 'Carregando...', error: 'Algo deu errado', retry: 'Tentar novamente',
+        close: 'Fechar', confirm: 'Confirmar', cancel: 'Cancelar', save: 'Salvar',
+        search: 'Pesquisar', more: 'Saiba mais', back: 'Voltar', next: 'Próximo',
+        live: 'AO VIVO', new: 'NOVO', free: 'Grátis'
+      }
+    },
+&nbsp;
+    de: {
+      appTitle: 'SmartStadium 2026',
+      appSubtitle: 'FIFA Weltmeisterschaft 2026',
+      nav: { home: 'Start', assistant: 'KI-Assistent', navigate: 'Navigation', crowd: 'Menschenmenge', tickets: 'Tickets', emergency: 'Notfall' },
+      chat: { title: 'KI-Stadionassistent', subtitle: 'Online · Powered by SmartAI',
+        placeholder: 'Frag mich alles über das Stadion...',
+        send: 'Senden', voice: 'Spracheingabe',
+        greeting: 'Hallo! Ich bin Ihr FIFA-WM-2026-Stadionassistent 🏆 Ich kann Ihnen mit Wegbeschreibungen, Essen, Spielinfos, Regeln, Sicherheit und mehr helfen. Was möchten Sie wissen?',
+        quickReplies: ['📍 Mein Platz', '🚻 Toilette', '🍔 Essen', '📋 Regeln', '🏥 Erste Hilfe', '🚪 Ausgänge', '🚌 Transport', '♿ Barrierefreiheit']
+      },
+      navigate: { title: 'Intelligente Navigation', subtitle: 'KI-gestützte Wegführung im Stadion',
+        searchPlaceholder: 'Wohin möchten Sie gehen?', findRoute: 'Route finden', clearRoute: 'Löschen',
+        myLocation: 'Mein Standort', stepByStep: 'Schritt-für-Schritt-Anleitung', estimated: 'Gesch. Gehzeit', minutes: 'Min'
+      },
+      crowd: { title: 'Crowd-Management', subtitle: 'Live-Überwachung und KI-Stauvorhersagen',
+        live: 'LIVE', low: 'Frei', medium: 'Mäßig', high: 'Stau',
+        prediction: 'KI-Vorhersage', altRoute: 'Alternativroute', emergencyAlert: 'Notfallalarm'
+      },
+      tickets: { title: 'Meine Tickets &amp; Fan Zone', digitalWallet: 'Digitale Geldbörse', myTicket: 'Mein Ticket',
+        fanZone: 'Fan Zone', schedule: 'Spielplan', standingsTab: 'Tabelle', scanTicket: 'Zum Scannen tippen'
+      },
+      emergency: { title: 'Notfall &amp; Sicherheit', subtitle: 'Ihre Sicherheit hat höchste Priorität',
+        sos: 'SOS', sosLabel: 'IM NOTFALL DRÜCKEN', contacts: 'Notfallkontakte',
+        lostFound: 'Fundbüro', lostChild: 'Vermisstes Kind melden', safetyAlerts: 'Sicherheitsmeldungen',
+        reportItem: 'Verlorenen Gegenstand melden', describeItem: 'Beschreiben Sie Ihren verlorenen Gegenstand...', submit: 'Bericht senden'
+      },
+      settings: { title: 'Einstellungen', language: 'Sprache', highContrast: 'Hoher Kontrast',
+        fontSize: 'Schriftgröße', reduceMotion: 'Bewegung reduzieren', notifications: 'Push-Benachrichtigungen', offline: 'Offline-Modus'
+      },
+      common: { loading: 'Laden...', error: 'Etwas ist schiefgelaufen', retry: 'Erneut versuchen',
+        close: 'Schließen', confirm: 'Bestätigen', cancel: 'Abbrechen', save: 'Speichern',
+        search: 'Suchen', more: 'Mehr erfahren', back: 'Zurück', next: 'Weiter',
+        live: 'LIVE', new: 'NEU', free: 'Kostenlos'
+      }
+    },
+&nbsp;
+    ja: {
+      appTitle: 'SmartStadium 2026',
+      appSubtitle: 'FIFA ワールドカップ 2026',
+      nav: { home: 'ホーム', assistant: 'AIアシスタント', navigate: 'ナビ', crowd: '混雑', tickets: 'チケット', emergency: '緊急' },
+      chat: { title: 'スタジアムAIアシスタント', subtitle: 'オンライン · SmartAI搭載',
+        placeholder: 'スタジアムについて何でも聞いてください...',
+        send: '送信', voice: '音声入力',
+        greeting: 'こんにちは！FIFA ワールドカップ 2026 スタジアムアシスタントです 🏆 道案内、食事、試合情報、ルール、安全など、何でもお手伝いします。何が知りたいですか？',
+        quickReplies: ['📍 私の席', '🚻 トイレ', '🍔 食事', '📋 ルール', '🏥 救急', '🚪 出口', '🚌 交通', '♿ アクセシビリティ']
+      },
+      navigate: { title: 'スマートナビゲーション', subtitle: 'AIによるスタジアム案内', searchPlaceholder: 'どこへ行きますか？',
+        findRoute: 'ルートを検索', clearRoute: 'クリア', myLocation: '現在地', stepByStep: 'ルート案内', estimated: '徒歩時間', minutes: '分'
+      },
+      crowd: { title: '混雑管理', subtitle: 'リアルタイム監視とAI予測', live: 'ライブ',
+        low: '空き', medium: '普通', high: '混雑', prediction: 'AI予測', altRoute: '迂回ルート', emergencyAlert: '緊急アラート'
+      },
+      tickets: { title: 'チケット・ファンゾーン', digitalWallet: 'デジタルウォレット', myTicket: 'マイチケット',
+        fanZone: 'ファンゾーン', schedule: 'スケジュール', standingsTab: '順位表', scanTicket: 'タップしてスキャン'
+      },
+      emergency: { title: '緊急・安全', subtitle: 'あなたの安全が最優先です',
+        sos: 'SOS', sosLabel: '緊急の場合はタップ', contacts: '緊急連絡先',
+        lostFound: '落し物', lostChild: '迷子を報告', safetyAlerts: '安全アラート',
+        reportItem: '落し物を報告', describeItem: '落し物を説明してください...', submit: '報告を送信'
+      },
+      settings: { title: '設定', language: '言語', highContrast: 'ハイコントラスト',
+        fontSize: 'フォントサイズ', reduceMotion: 'アニメーション削減', notifications: 'プッシュ通知', offline: 'オフラインモード'
+      },
+      common: { loading: '読み込み中...', error: 'エラーが発生しました', retry: '再試行',
+        close: '閉じる', confirm: '確認', cancel: 'キャンセル', save: '保存',
+        search: '検索', more: '詳細', back: '戻る', next: '次へ', live: 'ライブ', new: '新着', free: '無料'
+      }
+    },
+&nbsp;
+    ko: {
+      appTitle: 'SmartStadium 2026',
+      appSubtitle: 'FIFA 월드컵 2026',
+      nav: { home: '홈', assistant: 'AI 어시스턴트', navigate: '길찾기', crowd: '군중', tickets: '티켓', emergency: '긴급' },
+      chat: { title: '경기장 AI 어시스턴트', subtitle: '온라인 · SmartAI 지원', placeholder: '경기장에 대해 무엇이든 물어보세요...',
+        send: '전송', voice: '음성 입력',
+        greeting: '안녕하세요! FIFA 월드컵 2026 경기장 어시스턴트입니다 🏆 길 안내, 음식, 경기 정보, 규칙, 안전 등 무엇이든 도와드립니다. 무엇이 궁금하신가요?',
+        quickReplies: ['📍 내 좌석', '🚻 화장실', '🍔 음식', '📋 규칙', '🏥 응급처치', '🚪 출구', '🚌 교통', '♿ 접근성']
+      },
+      navigate: { title: '스마트 내비게이션', subtitle: 'AI 기반 경기장 길찾기', searchPlaceholder: '어디로 가시겠어요?',
+        findRoute: '경로 찾기', clearRoute: '지우기', myLocation: '내 위치', stepByStep: '단계별 안내', estimated: '예상 도보 시간', minutes: '분'
+      },
+      crowd: { title: '군중 관리', subtitle: '실시간 모니터링 및 AI 예측', live: '라이브',
+        low: '한산', medium: '보통', high: '혼잡', prediction: 'AI 예측', altRoute: '대체 경로', emergencyAlert: '긴급 경보'
+      },
+      tickets: { title: '내 티켓 &amp; 팬존', digitalWallet: '디지털 지갑', myTicket: '내 티켓',
+        fanZone: '팬존', schedule: '일정', standingsTab: '순위', scanTicket: '탭하여 스캔'
+      },
+      emergency: { title: '긴급 및 안전', subtitle: '귀하의 안전이 최우선입니다',
+        sos: 'SOS', sosLabel: '긴급 시 탭', contacts: '긴급 연락처',
+        lostFound: '분실물', lostChild: '미아 신고', safetyAlerts: '안전 경보',
+        reportItem: '분실물 신고', describeItem: '분실물을 설명해 주세요...', submit: '신고 제출'
+      },
+      settings: { title: '설정', language: '언어', highContrast: '고대비',
+        fontSize: '글꼴 크기', reduceMotion: '동작 줄이기', notifications: '푸시 알림', offline: '오프라인 모드'
+      },
+      common: { loading: '로딩 중...', error: '오류가 발생했습니다', retry: '재시도',
+        close: '닫기', confirm: '확인', cancel: '취소', save: '저장',
+        search: '검색', more: '더 보기', back: '뒤로', next: '다음', live: '라이브', new: '새로운', free: '무료'
+      }
+    },
+&nbsp;
+    hi: {
+      appTitle: 'SmartStadium 2026',
+      appSubtitle: 'FIFA विश्व कप 2026',
+      nav: { home: 'होम', assistant: 'AI सहायक', navigate: 'नेविगेट', crowd: 'भीड़', tickets: 'टिकट', emergency: 'आपातकाल' },
+      chat: { title: 'स्टेडियम AI सहायक', subtitle: 'ऑनलाइन · SmartAI द्वारा संचालित',
+        placeholder: 'स्टेडियम के बारे में कुछ भी पूछें...',
+        send: 'भेजें', voice: 'वॉइस इनपुट',
+        greeting: 'नमस्ते! मैं आपका FIFA विश्व कप 2026 स्टेडियम सहायक हूं 🏆 मैं दिशा-निर्देश, भोजन, मैच की जानकारी, नियम, सुरक्षा और अधिक में मदद कर सकता हूं। आप क्या जानना चाहते हैं?',
+        quickReplies: ['📍 मेरी सीट', '🚻 शौचालय', '🍔 खाना', '📋 नियम', '🏥 प्राथमिक चिकित्सा', '🚪 निकास', '🚌 परिवहन', '♿ पहुंच']
+      },
+      navigate: { title: 'स्मार्ट नेविगेशन', subtitle: 'AI-संचालित स्टेडियम मार्गदर्शन',
+        searchPlaceholder: 'आप कहाँ जाना चाहते हैं?', findRoute: 'मार्ग खोजें', clearRoute: 'साफ़ करें',
+        myLocation: 'मेरी लोकेशन', stepByStep: 'चरण-दर-चरण दिशा-निर्देश', estimated: 'अनुमानित पैदल समय', minutes: 'मिनट'
+      },
+      crowd: { title: 'भीड़ प्रबंधन', subtitle: 'लाइव निगरानी और AI भविष्यवाणियां', live: 'लाइव',
+        low: 'स्पष्ट', medium: 'मध्यम', high: 'भीड़भाड़', prediction: 'AI भविष्यवाणी', altRoute: 'वैकल्पिक मार्ग', emergencyAlert: 'आपातकालीन अलर्ट'
+      },
+      tickets: { title: 'मेरे टिकट और फैन जोन', digitalWallet: 'डिजिटल वॉलेट', myTicket: 'मेरा टिकट',
+        fanZone: 'फैन जोन', schedule: 'शेड्यूल', standingsTab: 'स्टैंडिंग', scanTicket: 'स्कैन करने के लिए टैप करें'
+      },
+      emergency: { title: 'आपातकाल और सुरक्षा', subtitle: 'आपकी सुरक्षा हमारी सर्वोच्च प्राथमिकता है',
+        sos: 'SOS', sosLabel: 'आपात स्थिति में दबाएं', contacts: 'आपातकालीन संपर्क',
+        lostFound: 'खोया-पाया', lostChild: 'गुमशुदा बच्चे की रिपोर्ट', safetyAlerts: 'सुरक्षा अलर्ट',
+        reportItem: 'खोई वस्तु की रिपोर्ट', describeItem: 'अपनी खोई वस्तु का वर्णन करें...', submit: 'रिपोर्ट सबमिट करें'
+      },
+      settings: { title: 'सेटिंग्स', language: 'भाषा', highContrast: 'उच्च कंट्रास्ट',
+        fontSize: 'फ़ॉन्ट आकार', reduceMotion: 'मोशन कम करें', notifications: 'पुश नोटिफिकेशन', offline: 'ऑफ़लाइन मोड'
+      },
+      common: { loading: 'लोड हो रहा है...', error: 'कुछ गलत हो गया', retry: 'पुनः प्रयास करें',
+        close: 'बंद करें', confirm: 'पुष्टि करें', cancel: 'रद्द करें', save: 'सहेजें',
+        search: 'खोजें', more: 'अधिक जानें', back: 'वापस', next: 'अगला', live: 'लाइव', new: 'नया', free: 'मुफ्त'
+      }
+    },
+&nbsp;
+    it: {
+      appTitle: 'SmartStadium 2026',
+      appSubtitle: 'Coppa del Mondo FIFA 2026',
+      nav: { home: 'Home', assistant: 'Assistente IA', navigate: 'Naviga', crowd: 'Folla', tickets: 'Biglietti', emergency: 'Emergenza' },
+      chat: { title: 'Assistente IA dello Stadio', subtitle: 'Online · Powered by SmartAI',
+        placeholder: 'Chiedimi qualsiasi cosa sullo stadio...',
+        send: 'Invia', voice: 'Input vocale',
+        greeting: 'Ciao! Sono il tuo Assistente dello Stadio della Coppa del Mondo FIFA 2026 🏆 Posso aiutarti con indicazioni, cibo, info sulla partita, regole, sicurezza e altro. Cosa vorresti sapere?',
+        quickReplies: ['📍 Il mio posto', '🚻 Bagno', '🍔 Cibo', '📋 Regole', '🏥 Pronto Soccorso', '🚪 Uscite', '🚌 Trasporti', '♿ Accessibilità']
+      },
+      navigate: { title: 'Navigazione Intelligente', subtitle: 'Orientamento IA in tutto lo stadio',
+        searchPlaceholder: 'Dove vuoi andare?', findRoute: 'Trova Percorso', clearRoute: 'Cancella',
+        myLocation: 'La mia posizione', stepByStep: 'Istruzioni passo dopo passo', estimated: 'Tempo a piedi stimato', minutes: 'min'
+      },
+      crowd: { title: 'Gestione della Folla', subtitle: 'Monitoraggio live e previsioni IA', live: 'LIVE',
+        low: 'Libero', medium: 'Moderato', high: 'Congestionato',
+        prediction: 'Previsione IA', altRoute: 'Percorso Alternativo', emergencyAlert: 'Allarme Emergenza'
+      },
+      tickets: { title: 'I miei Biglietti e Fan Zone', digitalWallet: 'Portafoglio Digitale', myTicket: 'Il mio Biglietto',
+        fanZone: 'Fan Zone', schedule: 'Calendario', standingsTab: 'Classifica', scanTicket: 'Tocca per Scansionare'
+      },
+      emergency: { title: 'Emergenza e Sicurezza', subtitle: 'La tua sicurezza è la nostra massima priorità',
+        sos: 'SOS', sosLabel: "TOCCA IN CASO D'EMERGENZA", contacts: "Contatti d'Emergenza",
+        lostFound: 'Oggetti Smarriti', lostChild: 'Segnala Bambino Disperso', safetyAlerts: 'Avvisi di Sicurezza',
+        reportItem: 'Segnala Oggetto Smarrito', describeItem: 'Descrivi il tuo oggetto smarrito...', submit: 'Invia Segnalazione'
+      },
+      settings: { title: 'Impostazioni', language: 'Lingua', highContrast: 'Alto Contrasto',
+        fontSize: 'Dimensione Testo', reduceMotion: 'Riduci Animazioni', notifications: 'Notifiche Push', offline: 'Modalità Offline'
+      },
+      common: { loading: 'Caricamento...', error: "Qualcosa è andato storto", retry: 'Riprova',
+        close: 'Chiudi', confirm: 'Conferma', cancel: 'Annulla', save: 'Salva',
+        search: 'Cerca', more: 'Scopri di più', back: 'Indietro', next: 'Avanti', live: 'LIVE', new: 'NUOVO', free: 'Gratis'
+      }
+    }
+  };
+&nbsp;
+  let currentLang = 'en';
+&nbsp;
+  /**
+   * Initialize language from stored preference or browser setting
+   */
+  function init() {
+    const stored = Utils.getStorage('ss_language', null);
+    if (stored &amp;&amp; SUPPORTED_LANGUAGES[stored]) {
+      currentLang = stored;
+    } else {
+      const browser = navigator.language?.split('-')[0];
+      currentLang = (browser &amp;&amp; SUPPORTED_LANGUAGES[browser]) ? browser : <span class="branch-1 cbranch-no" title="branch not covered" >'en';</span>
+    }
+    applyLanguage(currentLang);
+  }
+&nbsp;
+  /**
+   * Get translation for a key path (e.g. 'chat.title')
+   * @param {string} keyPath - Dot-separated key path
+   * @param {string} [lang] - Override language
+   * @returns {string}
+   */
+  function t(keyPath, lang) {
+    const l = lang || currentLang;
+    const dict = TRANSLATIONS[l] || <span class="branch-1 cbranch-no" title="branch not covered" >TRANSLATIONS['en'];</span>
+    const keys = keyPath.split('.');
+    let val = dict;
+    for (const k of keys) {
+      val = val?.[k];
+      if (val === undefined) break;
+    }
+    if (val === undefined || typeof val !== 'string') {
+      // Fallback to English
+      let fallback = TRANSLATIONS['en'];
+      for (const k of keys) fallback = fallback?.[k];
+      return fallback || keyPath;
+    }
+    return val;
+  }
+&nbsp;
+  /**
+   * Change active language
+   * @param {string} code - Language code
+   */
+  function setLanguage(code) {
+    if (!SUPPORTED_LANGUAGES[code]) return;
+    currentLang = code;
+    Utils.setStorage('ss_language', code);
+    applyLanguage(code);
+    document.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang: code } }));
+    Utils.announce(`Language changed to ${SUPPORTED_LANGUAGES[code].name}`);
+  }
+&nbsp;
+  /**
+   * Apply language settings to the document
+   * @param {string} code
+   */
+  function applyLanguage(code) {
+    const langConfig = SUPPORTED_LANGUAGES[code];
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!langConfig) <span class="cstat-no" title="statement not covered" >return;</span>
+    document.documentElement.lang = langConfig.speechLang;
+    document.documentElement.dir  = langConfig.dir;
+  }
+&nbsp;
+  /**
+   * Get all supported language configs
+   * @returns {Object}
+   */
+  function getLanguages() {
+    return SUPPORTED_LANGUAGES;
+  }
+&nbsp;
+  /**
+   * Get current language code
+   * @returns {string}
+   */
+  function getLang() { return currentLang; }
+&nbsp;
+  /**
+   * Get speech language code for current language
+   * @returns {string}
+   */
+  function getSpeechLang() {
+    return SUPPORTED_LANGUAGES[currentLang]?.speechLang || <span class="branch-1 cbranch-no" title="branch not covered" >'en-US';</span>
+  }
+&nbsp;
+  return { init, t, setLanguage, getLang, getSpeechLang, getLanguages, SUPPORTED_LANGUAGES };
+})();
+&nbsp;
+<span class="missing-if-branch" title="else path not taken" >E</span>if (typeof module !== 'undefined' &amp;&amp; module.exports) module.exports = I18n;
+&nbsp;
+&nbsp;</pre></td></tr></table></pre>
+
+                <div class='push'></div><!-- for sticky footer -->
+            </div><!-- /wrapper -->
+            <div class='footer quiet pad2 space-top1 center small'>
+                Code coverage generated by
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at 2026-07-18T09:53:13.980Z
+            </div>
+        <script src="prettify.js"></script>
+        <script>
+            window.onload = function () {
+                prettyPrint();
+            };
+        </script>
+        <script src="sorter.js"></script>
+        <script src="block-navigation.js"></script>
+    </body>
+</html>
+    

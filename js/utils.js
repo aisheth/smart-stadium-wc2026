@@ -160,13 +160,18 @@ const Utils = (() => {
   }
 
   /**
-   * Safely set innerHTML with sanitized content
-   * @param {string|Element} target - ID or element
-   * @param {string} html - Already-safe HTML
+   * Safely set innerHTML with DOMPurify sanitization
+   * Falls back to raw assignment only when DOMPurify is unavailable (e.g., test env)
+   * @param {string|Element} target - Element ID or DOM element
+   * @param {string} html - HTML string to sanitize and insert
    */
   function setHTML(target, html) {
     const elem = typeof target === 'string' ? el(target) : target;
-    if (elem) elem.innerHTML = html;
+    if (!elem) return;
+    const clean = (typeof DOMPurify !== 'undefined')
+      ? DOMPurify.sanitize(html, { ADD_ATTR: ['aria-live', 'aria-label', 'data-i18n', 'role'] })
+      : html;
+    elem.innerHTML = clean;
   }
 
   /**

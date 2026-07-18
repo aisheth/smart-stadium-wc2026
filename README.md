@@ -1,59 +1,111 @@
-# SmartStadium - FIFA World Cup 2026 Companion App
+# SmartStadium 2026: Enterprise AI Operations Platform
 
-Welcome to **SmartStadium**, the official AI-powered companion application designed for the FIFA World Cup 2026. This app is built to provide fans with a seamless, safe, and engaging match-day experience.
+> **GenAI-enabled solution enhancing stadium operations and the overall tournament experience for the FIFA World Cup 2026.**
 
-## 🌟 Key Features
+![SmartStadium Header](./docs/header-preview.png) *(Note: Replace with actual screenshot)*
 
-### 1. 🤖 AI Chatbot Assistant
-- A smart chatbot ready to answer your questions about the stadium, parking, match rules, and more.
-- **Developer Mode**: In the Settings menu, you can input your own Google Gemini API key to enable real-time, dynamic AI responses.
+SmartStadium is an enterprise-grade AI Operations Platform built specifically to address the complex operational challenges of hosting the FIFA World Cup 2026. Rather than a traditional consumer app, SmartStadium leverages Generative AI and a sophisticated Multi-Agent Architecture to provide real-time decision support, crowd management, and autonomous operational intelligence for venue staff, while simultaneously providing a world-class companion experience for fans.
 
-### 2. 🗺️ Interactive Wayfinding & Navigation
-- **Find My Seat**: Navigate the stadium efficiently with a built-in map.
-- Search for specific facilities such as gates, food & drink stalls, restrooms, and medical centers.
-- Generates turn-by-turn directions and estimated walking times.
+---
 
-### 3. 🎟️ Digital Ticketing & Wallet
-- **My Tickets**: Securely store your match tickets. Features a QR code scanner for fast, contactless entry at the gates.
-- **Match Schedule**: Keep track of live matches, scores, upcoming games, and stadium locations.
-- **Fan Zone**: Discover activities happening around the venue (live music, face painting, fan shops, etc.) and navigate to them instantly.
+## 🏆 Challenge Alignment
 
-### 4. 📊 Live Crowd Congestion & AI Predictions
-- Monitor real-time crowd density across different stadium zones (e.g., Gate A, North Concourse, Food Court).
-- View AI-generated predictions for expected congestion in the next 15-30 minutes, helping you plan the best time to grab a snack or use the restroom.
+This solution directly addresses the FIFA World Cup 2026 hackathon challenge:
 
-### 5. 🚨 Emergency & Safety Hub
-- **SOS Button**: A quick-access emergency button (hold for 2 seconds) to immediately notify staff of your location.
-- **Lost & Found**: Easily report lost items, found items, or missing persons (urgent priority).
-- **Emergency Contacts**: Quick access to stadium security, medical assistance, and police.
-- **Live Overlays**: Receives broadcast emergency alerts directly on the screen.
+- **Operational Intelligence & Real-time Decision Support:** Features a dedicated Executive Dashboard powered by a Multi-Agent AI system that analyzes stadium data and surfaces actionable insights (e.g., predicted congestion).
+- **Crowd Management:** Live Heatmap engine simulates crowd density and automatically predicts congestion bottlenecks, calculating alternate routing in real-time.
+- **Multilingual Assistance:** AI Assistant provides 10+ language native support with real-time text-to-speech for seamless global fan interaction.
+- **Accessibility:** Deep commitment to a11y standards (WCAG 2.1 AA), including high-contrast mode, reduced motion, ARIA-live announcements, and dedicated `AccessibilityAgent` for wheelchair routing.
+- **Sustainability:** `SustainabilityAgent` provides context-aware guidance on recycling, carbon offsetting, and eco-friendly transit options.
+- **Navigation & Transportation:** Integrated Wayfinding and `TransportAgent` logic to assist with gate entry, seating, and transit logistics.
 
-### 6. 🌐 Accessibility & Internationalization (i18n)
-- **Multi-Language Support**: Fully translated into 10 languages (English, Spanish, French, German, Arabic, Japanese, Korean, Portuguese, Hindi, Chinese) to accommodate fans from around the world.
-- Responsive design tailored for mobile web.
+---
 
-## 🎨 Theme & Design
-The application features a premium, fiery football-centric theme designed specifically for the World Cup:
-- **Pitch-Green Base Scheme**: Immersive dark green background tones.
-- **Neon & Fire Accents**: Striking bright green (`#39FF14`) and fiery orange/red (`#FF5500`) highlights.
-- **Dynamic Backgrounds**: Glowing neon soccer pitch aesthetics rendered dynamically via CSS gradients.
+## 🧠 Multi-Agent AI Architecture
 
-## 🚀 How to Run Locally
+SmartStadium utilizes an advanced **AgentRouter** pattern. User queries and system events are classified and routed to highly specialized AI Agents, ensuring domain-expert responses rather than generic chatbot replies.
 
-This is a lightweight, frontend-only Web App. No complex build tools are required!
+```mermaid
+graph TD
+    User([User / System Input]) -->|Query| Router(Agent Router & Intent Classifier)
+    
+    Router -->|Crowd/Density| A[CrowdIntel Agent]
+    Router -->|Emergency/SOS| B[Emergency Agent]
+    Router -->|Eco/Recycle| C[Sustainability Agent]
+    Router -->|Ticketing/Gates| D[Operations Agent]
+    Router -->|Directions| E[Navigation Agent]
+    
+    A -->|Congestion Alerts| DB[(Dashboard Insights)]
+    D -->|Status Updates| DB
+    B -->|Medical/Security| DB
+    
+    DB --> ExecUI[Executive Operations Dashboard]
+```
 
-1. Clone or download the repository.
-2. Open the project folder.
-3. Serve the directory using any local web server. For example, if you have Python installed:
+### Core Agents:
+- **OperationsAgent:** Monitors general stadium status, gates, and ticketing.
+- **CrowdIntelAgent:** Analyzes heatmap data to predict surges and suggest alternate routes.
+- **EmergencyAgent:** Handles SOS triggers, medical queries, and security alerts.
+- **SustainabilityAgent:** Promotes green initiatives and eco-friendly choices.
+- **TransportAgent:** Manages ingress/egress transit coordination.
+
+---
+
+## 🚀 Key Features
+
+### 1. Executive Operations Dashboard
+The default landing experience provides a high-level operational overview, displaying live venue status (Capacity, Active Staff, Issues) alongside prioritized AI Insights. The AI evaluates real-time data to output specific recommendations with calculated confidence scores and impact assessments.
+
+### 2. Live Crowd Heatmap & Prediction
+A real-time canvas-based heatmap engine (`heatmap.js`) simulates zone densities. The AI Engine continuously analyzes this data to issue predictions like: *"North Concourse expected to reach 95% capacity in 15 mins. Suggest opening overflow Gate C."*
+
+### 3. Context-Aware AI Assistant
+An interactive GenAI assistant that understands stadium context (e.g., "I'm hungry" prompts the AI to recommend food stands near the user's current section). Features full voice input/output capabilities.
+
+### 4. Smart Digital Wallet
+Integrated ticket management and schedule viewing, optimized for fast scanning at the gates.
+
+---
+
+## 🛡️ Enterprise Security & Quality
+
+- **XSS Prevention:** Strict adherence to security standards using `DOMPurify` for all dynamic HTML injection and Markdown rendering. Raw `innerHTML` usage is explicitly prohibited.
+- **Comprehensive Testing:** Robust Jest test suite achieving high coverage across all core modules (`ai-engine`, `i18n`, `knowledge-base`, `heatmap`, `emergency`, `tickets`).
+- **Performance:** Debounced event handlers, efficient `requestAnimationFrame` canvas rendering, and modular IIFE architecture to prevent global scope pollution.
+
+---
+
+## 🛠️ Installation & Setup
+
+1. **Clone the repository:**
    ```bash
-   python -m http.server 8000
+   git clone https://github.com/aisheth/smart-stadium-wc2026.git
+   cd smart-stadium-wc2026
    ```
-4. Open your browser and navigate to `http://localhost:8000`.
 
-## ⚙️ Developer Settings
-To unlock the true power of the AI Chat Assistant:
-1. Open the **Settings** menu (gear icon in the top right).
-2. Enter your Google Gemini API key in the **Developer Mode** section.
-3. Navigate back to the home screen and interact with the AI assistant!
+2. **Install testing dependencies:**
+   ```bash
+   npm install
+   ```
 
-*Note: Your API key is stored securely in your browser's local storage and is never sent anywhere other than Google's Gemini API endpoints.*
+3. **Run the test suite:**
+   ```bash
+   npm run test
+   ```
+   *To view coverage reports:* `npm run test:coverage`
+
+4. **Launch the application:**
+   Since this is a client-side application, simply serve the directory using any local web server (e.g., Live Server, Python `http.server`, or Node `http-server`).
+   ```bash
+   npx http-server .
+   ```
+   Navigate to `http://localhost:8080` in your browser.
+
+---
+
+## ⚙️ Configuration (Developer Mode)
+
+To enable live LLM integration via Gemini (if configured in `ai-engine.js`), navigate to the Settings menu (⚙️) in the app header and input your API key under Developer Mode. The key is securely stored in local `sessionStorage`.
+
+---
+*Built for the FIFA World Cup 2026 Hackathon.*

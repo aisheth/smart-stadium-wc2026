@@ -56,12 +56,14 @@ document.addEventListener('DOMContentLoaded', () => {
     setupSettings();
     setupPWA();
 
-    // Removed Hero Carousel
+    // 3. Dashboard
+    renderDashboard();
+    startDashboardClock();
 
     // 4. Initial UI State
     updateLanguageUI();
-    
-    // Check local storage for settings
+
+    // Restore persisted accessibility settings
     if (Utils.getStorage('ss_high_contrast', false)) {
       document.body.classList.add('high-contrast');
       if (els.highContrastToggle) els.highContrastToggle.checked = true;
@@ -70,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.classList.add('reduce-motion');
       if (els.reduceMotionToggle) els.reduceMotionToggle.checked = true;
     }
-    
+
     const savedKey = Utils.getStorage('ss_gemini_key', '');
     if (els.geminiKeyInput && savedKey) {
       els.geminiKeyInput.value = savedKey;
@@ -152,6 +154,153 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       els.headerTitle.textContent = I18n.t(`${sectionId}.title`) || sectionId.toUpperCase();
     }
+  }
+
+  /* =========================================================================
+   * ENTERPRISE DASHBOARD
+   * =========================================================================
+   *
+   * Populates the #dashboard-insights grid with AI insight cards generated
+   * by AIEngine.generateDashboardInsights(). Each card shows:
+   *   - Agent name badge and severity indicator
+   *   - AI recommendation (always visible)
+   *   - Reasoning + confidence + impact (expandable accordion)
+   *
+   * All HTML is built with string templates and set via Utils.setHTML so that
+   * DOMPurify sanitizes the output before insertion.
+   */
+
+  /**
+   * Render all AI insight cards into the #dashboard-insights container.
+   * Called once on init. Event delegation handles accordion toggling.
+   */
+  function renderDashboard() {
+    const container = document.getElementById('dashboard-insights');
+    if (!container) return;
+
+    const insights = AIEngine.generateDashboardInsights();
+    if (!insights || !insights.length) return;
+
+    // Build HTML for all cards
+    const cardsHtml = insights.map((ins, idx) => {
+      const bodyId = `insight-body-${ins.id}`;
+      const toggleId = `insight-toggle-${ins.id}`;
+      return `
+        <article
+          class="insight-card severity-${Utils.escapeHtml(ins.severity)}"
+          aria-label="${Utils.escapeHtml(ins.title)} — ${Utils.escapeHtml(ins.severity)} severity"
+        >
+          <div class="insight-card-header">
+            <span class="insight-icon" aria-hidden="true">${Utils.escapeHtml(ins.icon)}</span>
+            <div class="insight-header-text">
+              <h3 class="insight-title">${Utils.escapeHtml(ins.title)}</h3>
+              <span class="insight-agent-badge">🤖 ${Utils.escapeHtml(ins.agent)}</span>
+            </div>
+            <span
+              class="insight-severity-badge ${Utils.escapeHtml(ins.severity)}"
+              aria-label="Severity: ${Utils.escapeHtml(ins.severity)}"
+            >${Utils.escapeHtml(ins.severity.toUpperCase())}</span>
+          </div>
+
+          <div class="insight-recommendation" role="region" aria-label="AI Recommendation">
+            <div class="insight-recommendation-label">💡 AI Recommendation</div>
+            <p class="insight-recommendation-text">${Utils.escapeHtml(ins.recommendation)}</p>
+          </div>
+
+          <div class="insight-details">
+            <button
+              id="${toggleId}"
+              class="insight-details-toggle"
+              aria-expanded="false"
+              aria-controls="${bodyId}"
+              data-body-id="${bodyId}"
+            >
+              <span>Reasoning &amp; Evidence</span>
+              <i class="toggle-chevron" aria-hidden="true">▾</i>
+            </button>
+            <div id="${bodyId}" class="insight-details-body" role="region" aria-labelledby="${toggleId}" hidden>
+              <p class="insight-reasoning-label">AI Reasoning</p>
+              <p class="insight-reasoning-text">${Utils.escapeHtml(ins.reasoning)}</p>
+              <div class="insight-meta-row">
+                <div class="insight-meta-item">
+                  <span class="insight-meta-label">Confidence</span>
+                  <span class="insight-meta-value">${Utils.escapeHtml(String(ins.confidence))}%</span>
+                  <div class="confidence-bar" aria-hidden="true">
+                    <div class="confidence-track">
+                      <div class="confidence-fill" style="width:${Utils.escapeHtml(String(ins.confidence))}%"></div>
+                    </div>
+                    <span class="confidence-label">${Utils.escapeHtml(String(ins.confidence))}%</span>
+                  </div>
+                </div>
+              </div>
+              <p class="insight-impact-text"><strong>Impact:</strong> ${Utils.escapeHtml(ins.impact)}</p>
+            </div>
+          </div>
+        </article>
+      `;
+    }).join('');
+
+    Utils.setHTML(container, cardsHtml);
+
+    // Wire accordion toggles using event delegation on the container
+    container.addEventListener('click', (e) => {
+      const btn = e.target.closest('.insight-details-toggle');
+      if (!btn) return;
+
+      const bodyId = btn.dataset.bodyId;
+      const body = document.getElementById(bodyId);
+      if (!body) return;
+
+      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!isExpanded));
+
+      if (isExpanded) {
+        body.classList.remove('open');
+        body.hidden = true;
+      } else {
+        body.classList.add('open');
+        body.hidden = false;
+      }
+    });
+
+    // Keyboard accessibility: allow Enter/Space on insight cards
+    container.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        const btn = e.target.closest('.insight-details-toggle');
+        if (btn) {
+          e.preventDefault();
+          btn.click();
+        }
+      }
+    });
+  }
+
+  /**
+   * Start the live dashboard clock, updating #dash-clock every second.
+   * Uses EST (America/New_York) to match stadium timezone.
+   */
+  function startDashboardClock() {
+    const clockEl = document.getElementById('dash-clock');
+    if (!clockEl) return;
+
+    function tick() {
+      try {
+        const now = new Date();
+        const timeStr = now.toLocaleTimeString('en-US', {
+          timeZone: 'America/New_York',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: false
+        });
+        clockEl.textContent = timeStr + ' EST';
+      } catch (_) {
+        clockEl.textContent = new Date().toLocaleTimeString();
+      }
+    }
+
+    tick();
+    setInterval(tick, 1000);
   }
 
   /* =========================================================================
@@ -242,24 +391,37 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  /**
+   * Append a chat message to the conversation thread.
+   * Bot messages: basic markdown rendered safely via DOMPurify (through Utils.setHTML).
+   * User messages: always escaped, never interpreted as HTML.
+   * @param {'bot'|'user'} sender
+   * @param {string} text - Raw text or markdown (bot) / raw text (user)
+   * @param {string|null} [id] - Optional element id (used for typing indicators)
+   */
   function appendChatMessage(sender, text, id = null) {
     const msg = document.createElement('div');
     msg.className = `chat-message ${sender}`;
     if (id) msg.id = id;
-    
-    // Convert basic markdown to HTML for bot messages
-    let htmlContent = Utils.sanitize(text);
+
+    const bubble = document.createElement('div');
+    bubble.className = 'message-bubble';
+
     if (sender === 'bot') {
-      htmlContent = htmlContent
+      // Render safe markdown subset: bold, italic, line-breaks.
+      // Utils.setHTML internally routes through DOMPurify.
+      const escaped = Utils.escapeHtml(text);
+      const md = escaped
         .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
         .replace(/\*(.*?)\*/g, '<em>$1</em>')
         .replace(/\n/g, '<br>');
+      Utils.setHTML(bubble, md);
+    } else {
+      // User input: plain text only, no HTML interpretation.
+      bubble.textContent = text;
     }
 
-    msg.innerHTML = `
-      <div class="message-bubble">${htmlContent}</div>
-    `;
-    
+    msg.appendChild(bubble);
     els.chatMessages.appendChild(msg);
     chatHistory.push({ sender, text });
     scrollToChatBottom();

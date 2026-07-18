@@ -222,3 +222,5 @@ const Tickets = (() => {
     renderFanZone
   };
 })();
+
+if (typeof module !== 'undefined' && module.exports) module.exports = Tickets;

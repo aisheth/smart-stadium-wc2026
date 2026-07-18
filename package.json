@@ -1,16 +1,21 @@
 {
   "name": "smart-stadium-wc2026",
-  "version": "1.0.0",
-  "description": "Welcome to **SmartStadium**, the official AI-powered companion application designed for the FIFA World Cup 2026. This app is built to provide fans with a seamless, safe, and engaging match-day experience.",
+  "version": "2.0.0",
+  "description": "AI-powered Smart Stadium Operations Platform for FIFA World Cup 2026. Multi-agent GenAI solution covering crowd management, navigation, accessibility, transport, sustainability, and real-time operational intelligence.",
   "main": "sw.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --forceExit",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage --forceExit"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/aisheth/smart-stadium-wc2026.git"
   },
-  "keywords": [],
+  "keywords": [
+    "fifa", "world-cup-2026", "stadium", "ai", "genai", "crowd-management",
+    "accessibility", "navigation", "sustainability", "multi-agent"
+  ],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
@@ -21,5 +26,15 @@
   "devDependencies": {
     "jest": "^30.4.2",
     "jest-environment-jsdom": "^30.4.1"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testEnvironmentOptions": {},
+    "testMatch": ["**/tests/**/*.test.js"],
+    "coverageDirectory": "coverage",
+    "collectCoverageFrom": [
+      "js/*.js",
+      "!js/app.js"
+    ]
   }
 }
