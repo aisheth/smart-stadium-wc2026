@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>SmartStadium 2026 | FIFA World Cup Companion</title>
+  <meta name="description"
+    content="AI-powered stadium companion for the FIFA World Cup 2026. Includes navigation, ticketing, and live crowd insights.">
+  <meta name="theme-color" content="#05050A">
+  <link rel="manifest" href="./manifest.json">
+
+  <!-- Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/animations.css">
+  <link rel="stylesheet" href="./css/utilities.css">
+</head>
+
+<body>
+  <!-- Stadium Background -->
+  <div class="stadium-bg"></div>
+
+  <!-- App Loader -->
+  <div id="app-loader" class="app-loader">
+    <div class="loader-spinner"></div>
+    <div class="loader-text gold-text font-outfit">Loading SmartStadium...</div>
+  </div>
+
+  <!-- Header -->
+  <header class="app-header">
+    <h1 id="header-title" class="font-outfit"><span class="gold-text">Smart</span>Stadium</h1>
+    <button class="btn-icon header-action" aria-label="Open Settings"
+      onclick="document.getElementById('settings-modal').classList.add('show')">⚙️</button>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="app-main">
+
+    <!-- HOME SECTION -->
+    <section id="section-home" class="app-section active">
+      <!-- Removed Player Carousel -->
+
+      <!-- Quick Action Cards -->
+      <div class="grid-2-col p-md mt-sm">
+        <div class="card interactive card-gold"
+          onclick="document.querySelector('.nav-btn[data-target=\'navigate\']').click()">
+          <div class="card-header mb-sm">
+            <span class="nav-icon text-gold">🗺️</span>
+          </div>
+          <h3 class="card-title" data-i18n="home.findMySeat">Find My Seat</h3>
+          <p class="card-subtitle" data-i18n="home.interactiveMap">Interactive stadium map</p>
+        </div>
+        <div class="card interactive card-accent"
+          onclick="document.querySelector('.nav-btn[data-target=\'tickets\']').click()">
+          <div class="card-header mb-sm">
+            <span class="nav-icon text-accent">🎟️</span>
+          </div>
+          <h3 class="card-title" data-i18n="home.myTickets">My Tickets</h3>
+          <p class="card-subtitle" data-i18n="home.digitalWalletText">Digital wallet & entry</p>
+        </div>
+      </div>
+
+      <!-- Match Day Widget -->
+      <div class="p-md">
+        <h2 class="section-title" data-i18n="home.todayVenue">Today's Venue</h2>
+        <div class="card">
+          <div class="flex-between mb-sm">
+            <h4>MetLife Stadium</h4>
+            <span class="tag live" data-i18n="home.matchDay">Match Day</span>
+          </div>
+          <div class="flex-between">
+            <div>
+              <div class="text-sm opacity-70" data-i18n="home.weather">Weather</div>
+              <div class="font-bold">🌤️ 78°F / 26°C</div>
+            </div>
+            <div class="text-right">
+              <div class="text-sm opacity-70" data-i18n="home.gatesOpen">Gates Open</div>
+              <div class="font-bold text-success" data-i18n="home.openNow">OPEN NOW</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI ASSISTANT SECTION -->
+    <section id="section-assistant" class="app-section">
+      <div class="chat-container">
+        <div id="chat-messages" class="chat-messages">
+          <!-- Messages injected here -->
+        </div>
+        <div class="chat-input-area">
+          <div id="chat-quick-replies" class="chat-quick-replies">
+            <!-- Injected via app.js (i18n) -->
+          </div>
+          <div class="chat-input-wrapper">
+            <button id="chat-voice-btn" class="btn-icon voice-btn" aria-label="Voice input">🎤</button>
+            <input type="text" id="chat-input" placeholder="Ask me anything..." data-i18n="chat.placeholder"
+              autocomplete="off">
+            <button id="chat-send-btn" class="btn-icon send-btn" aria-label="Send message">↗</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NAVIGATE SECTION -->
+    <section id="section-navigate" class="app-section">
+      <div class="map-search-bar" style="display: flex; gap: 8px; width: 100%;">
+        <select id="nav-search" class="form-input" style="flex: 1;">
+          <option value="" disabled selected>Where do you want to go?</option>
+          <!-- Injected via app.js -->
+        </select>
+        <button id="nav-clear-route" class="btn-icon" style="display:none; background: var(--bg-glass);"
+          aria-label="Clear route">✕</button>
+      </div>
+      <div id="nav-results" class="nav-results-container"></div>
+
+      <div class="map-container-wrapper">
+        <div id="svg-map-container" class="svg-map-container">
+          <!-- SVG Map injected here -->
+        </div>
+        <div id="nav-directions-panel" class="directions-panel">
+          <!-- Turn-by-turn injected here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- CROWD MANAGEMENT SECTION -->
+    <section id="section-crowd" class="app-section">
+      <div class="heatmap-wrapper">
+        <canvas id="heatmap-canvas" class="heatmap-canvas"></canvas>
+        <div class="heatmap-overlay-info">
+          <span class="live-dot"></span> <span data-i18n="crowd.live">LIVE</span> Density
+        </div>
+      </div>
+
+      <div class="p-md">
+        <h2 class="section-title" data-i18n="crowd.predictionsTitle">AI Congestion Predictions</h2>
+        <div id="crowd-predictions" class="predictions-container">
+          <!-- Predictions injected here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- TICKETS SECTION -->
+    <section id="section-tickets" class="app-section">
+      <div class="tabs-nav">
+        <button class="tab-btn active"
+          onclick="document.getElementById('tab-wallet').style.display='block';document.getElementById('tab-schedule').style.display='none';document.getElementById('tab-fanzone').style.display='none';"
+          data-i18n="tickets.walletTab">Wallet</button>
+        <button class="tab-btn"
+          onclick="document.getElementById('tab-wallet').style.display='none';document.getElementById('tab-schedule').style.display='block';document.getElementById('tab-fanzone').style.display='none';"
+          data-i18n="tickets.scheduleTab">Schedule</button>
+        <button class="tab-btn"
+          onclick="document.getElementById('tab-wallet').style.display='none';document.getElementById('tab-schedule').style.display='none';document.getElementById('tab-fanzone').style.display='block';"
+          data-i18n="tickets.fanZoneTab">Fan Zone</button>
+      </div>
+
+      <div id="tab-wallet" class="tab-content" style="display:block;">
+        <div id="ticket-container" class="p-md"></div>
+      </div>
+
+      <div id="tab-schedule" class="tab-content" style="display:none;">
+        <div id="schedule-container" class="p-md"></div>
+      </div>
+
+      <div id="tab-fanzone" class="tab-content" style="display:none;">
+        <div id="fanzone-container" class="p-md"></div>
+      </div>
+    </section>
+
+    <!-- EMERGENCY SECTION -->
+    <section id="section-emergency" class="app-section">
+      <div class="p-md text-center">
+        <p class="text-sm opacity-70 mb-lg" data-i18n="emergency.subtitle">Your safety is our priority.</p>
+
+        <button id="sos-btn" class="sos-btn" aria-label="Hold for SOS Emergency">
+          <span class="sos-text">SOS</span>
+          <span class="sos-label" data-i18n="emergency.sosLabel">HOLD 2 SEC FOR EMERGENCY</span>
+        </button>
+      </div>
+
+      <div class="p-md">
+        <h2 class="section-title" data-i18n="emergency.contacts">Emergency Contacts</h2>
+        <div id="contacts-container" class="mb-lg"></div>
+
+        <h2 class="section-title" data-i18n="emergency.lostFound">Lost & Found</h2>
+        <div class="card">
+          <form id="lost-found-form" class="form-container">
+            <select id="lf-type" class="form-input" required>
+              <option value="" disabled selected data-i18n="emergency.selectIssue">Select issue type...</option>
+              <option value="lost-item" data-i18n="emergency.reportItem">Report Lost Item</option>
+              <option value="found-item" data-i18n="emergency.reportFoundItem">Report Found Item</option>
+              <option value="lost-child" data-i18n="emergency.lostChild">Missing Child (URGENT)</option>
+            </select>
+            <textarea id="lf-desc" class="form-input" rows="3" placeholder="Describe the item or person in detail..."
+              data-i18n="emergency.describeItem" required></textarea>
+            <button type="submit" class="btn btn-primary w-full" data-i18n="emergency.submit">Submit Report</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Bottom Navigation -->
+  <nav class="app-bottom-nav">
+    <button class="nav-btn active" data-target="home">
+      <div class="nav-icon">🏠</div>
+      <span data-i18n="nav.home">Home</span>
+    </button>
+    <button class="nav-btn" data-target="navigate">
+      <div class="nav-icon">🗺️</div>
+      <span data-i18n="nav.navigate">Navigate</span>
+    </button>
+    <button class="nav-btn chat-fab-wrapper" data-target="assistant">
+      <div class="nav-icon chat-fab">✨</div>
+      <span data-i18n="nav.assistant">AI</span>
+    </button>
+    <button class="nav-btn" data-target="crowd">
+      <div class="nav-icon">👥</div>
+      <span data-i18n="nav.crowd">Crowd</span>
+    </button>
+    <button class="nav-btn" data-target="tickets">
+      <div class="nav-icon">🎟️</div>
+      <span data-i18n="nav.tickets">Tickets</span>
+    </button>
+    <button class="nav-btn emergency" data-target="emergency">
+      <div class="nav-icon">🚨</div>
+      <span data-i18n="nav.emergency">SOS</span>
+    </button>
+  </nav>
+
+  <!-- Emergency Overlay (Global) -->
+  <div id="emergency-overlay" class="emergency-overlay">
+    <div class="emergency-overlay-content">
+      <div id="emergency-overlay-icon" class="eo-icon">⚠️</div>
+      <h2 id="emergency-overlay-title" data-i18n="emergency.alertTitle">ALERT</h2>
+      <p id="emergency-overlay-message" data-i18n="emergency.alertMessage">Follow staff instructions immediately.</p>
+      <button class="btn btn-outline mt-lg"
+        onclick="document.getElementById('emergency-overlay').classList.remove('show')"
+        data-i18n="common.acknowledge">Acknowledge</button>
+    </div>
+  </div>
+
+  <!-- Settings Modal -->
+  <div id="settings-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 data-i18n="settings.title">Settings</h2>
+        <button class="btn-icon" onclick="document.getElementById('settings-modal').classList.remove('show')">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="setting-item">
+          <label data-i18n="settings.language">Language</label>
+          <select id="lang-select" class="form-input"></select>
+        </div>
+        <div class="setting-item">
+          <label data-i18n="settings.highContrast">High Contrast Mode</label>
+          <label class="toggle-switch">
+            <input type="checkbox" id="high-contrast-toggle">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="setting-item">
+          <label data-i18n="settings.reduceMotion">Reduce Motion</label>
+          <label class="toggle-switch">
+            <input type="checkbox" id="reduce-motion-toggle">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="setting-item mt-lg border-t pt-md">
+          <label class="text-sm opacity-70" data-i18n="settings.devMode">Developer Mode</label>
+          <p class="text-xs mb-sm" data-i18n="settings.apiPrompt">To enable real Gemini AI, enter your API key (stored
+            locally only).</p>
+          <input type="password" id="gemini-key-input" class="form-input" placeholder="AIzaSy...">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="./js/utils.js"></script>
+  <script src="./js/knowledge-base.js"></script>
+  <script src="./js/i18n.js"></script>
+  <script src="./js/ai-engine.js"></script>
+  <script src="./js/wayfinding.js"></script>
+  <script src="./js/heatmap.js"></script>
+  <script src="./js/tickets.js"></script>
+  <script src="./js/emergency.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+
+</html>
