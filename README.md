@@ -2,7 +2,7 @@
 
 > **GenAI-enabled solution enhancing stadium operations and the overall tournament experience for the FIFA World Cup 2026.**
 
-![SmartStadium Header](./docs/header-preview.png) *(Note: Replace with actual screenshot)*
+
 
 SmartStadium is an enterprise-grade AI Operations Platform built specifically to address the complex operational challenges of hosting the FIFA World Cup 2026. Rather than a traditional consumer app, SmartStadium leverages Generative AI and a sophisticated Multi-Agent Architecture to provide real-time decision support, crowd management, and autonomous operational intelligence for venue staff, while simultaneously providing a world-class companion experience for fans.
 
